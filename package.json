@@ -1,0 +1,21 @@
+{
+  "name": "TweetableObjectsClient",
+  "version": "0.2.0",
+  "description": "Tweetable Object Client",
+  "main": "www/index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Paul Rangel",
+  "license": "ISC",
+  "dependencies": {
+    "angular": "^1.3.2",
+    "angular-route": "^1.3.2",
+    "grunt": "^0.4.5",
+    "grunt-contrib-jade": "^0.13.0",
+    "uri-monitor": "^0.3.0"
+  },
+  "devDependencies": {
+    "grunt-browserify": "^3.2.0"
+  }
+}
