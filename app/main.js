@@ -28,7 +28,7 @@ angular.module('TweetableObjects', ['ngRoute'])
             templateUrl : '/partials/littlebitsWifi.html',
             controller : 'LittleBitsWifiController'
         }).when('/choose', {
-            templateUrl : 'choose.html',
+            templateUrl : '/partials/choose.html',
             controller : 'ChooseWifiController'
         }).when('/password', {
             templateUrl : '/partials/password.html',

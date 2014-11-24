@@ -84,10 +84,14 @@ module.exports = [ '$scope', '$timeout', '$location', '$window', 'UriMonitor','C
     });
 
 
-
-    var handleOffline = function() {
-        $scope.status =  { message : CONNECTING_MSG };
+    handleOffline = function() {
+        console.log("connecting...");
+        $scope.$apply(function() {
+            console.log("apply: ");
+            $scope.status =  { message : CONNECTING_MSG };
+        })
     };
+
     $window.addEventListener("offline",handleOffline);
 
     checkLittleBits.start();
@@ -167,7 +171,7 @@ angular.module('TweetableObjects', ['ngRoute'])
             templateUrl : '/partials/littlebitsWifi.html',
             controller : 'LittleBitsWifiController'
         }).when('/choose', {
-            templateUrl : 'choose.html',
+            templateUrl : '/partials/choose.html',
             controller : 'ChooseWifiController'
         }).when('/password', {
             templateUrl : '/partials/password.html',

@@ -30,9 +30,10 @@ module.exports = [ '$scope', '$timeout', '$location', '$window', 'UriMonitor','C
     });
 
 
-
     var handleOffline = function() {
-        $scope.status =  { message : CONNECTING_MSG };
+        $scope.$apply(function() {
+            $scope.status =  { message : CONNECTING_MSG };
+        })
     };
     $window.addEventListener("offline",handleOffline);
 
