@@ -21,22 +21,22 @@ angular.module('TweetableObjects', ['ngRoute'])
         }).when('/', {
             templateUrl : 'bootingUp.html',
             controller : 'BootingUpController'
-        }).when('/ready', {
+        }).when('/partials/ready', {
             templateUrl : 'ready.html',
             controller : 'ReadyController'
-        }).when('/littlebits', {
+        }).when('/partials/littlebits', {
             templateUrl : 'littlebitsWifi.html',
             controller : 'LittleBitsWifiController'
-        }).when('/choose', {
+        }).when('/partials/choose', {
             templateUrl : 'choose.html',
             controller : 'ChooseWifiController'
-        }).when('/password', {
+        }).when('/partials/password', {
             templateUrl : 'password.html',
             controller : 'EnterPasswordController'
-        }).when('/reconnect', {
+        }).when('/partials/reconnect', {
             templateUrl : 'localWifi.html',
             controller : 'SwitchToLocalController'
-        }).when('/landing', {
+        }).when('/partials/landing', {
             templateUrl : 'landing.html',
             controller : 'LandingController'
         })

@@ -1,0 +1,13 @@
+
+<h4>Save your Wifi</h4>
+<div class="instruction-step">
+  <div ng-hide="wifis" class="content center">Finding your local wifi networks
+    <div class="spinner"></div>
+  </div>
+  <div ng-show="wifis" class="content center">Select your local wifi to connect to your device
+    <h5 class="choose-wifi">Choose your network...</h5>
+    <ul class="wifis">
+      <li ng-repeat="wifi in wifis" ng-if="wifi.ssid.length &gt; 0" ng-click="wifiSelected(wifi)">{{ wifi.ssid }}</li>
+    </ul>
+  </div>
+</div>
