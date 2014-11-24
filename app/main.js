@@ -16,28 +16,28 @@ var routes = require('../node_modules/angular-route/angular-route-index');
 angular.module('TweetableObjects', ['ngRoute'])
     .config(['$routeProvider',function($routeProvider){
         $routeProvider.when('/welcome/:handle', {
-            templateUrl : 'bootingUp.html',
+            templateUrl : '/partials/bootingUp.html',
             controller : 'BootingUpController'
         }).when('/', {
-            templateUrl : 'bootingUp.html',
+            templateUrl : '/partials/bootingUp.html',
             controller : 'BootingUpController'
-        }).when('/partials/ready', {
-            templateUrl : 'ready.html',
+        }).when('/ready', {
+            templateUrl : '/partials/ready.html',
             controller : 'ReadyController'
-        }).when('/partials/littlebits', {
-            templateUrl : 'littlebitsWifi.html',
+        }).when('/littlebits', {
+            templateUrl : '/partials/littlebitsWifi.html',
             controller : 'LittleBitsWifiController'
-        }).when('/partials/choose', {
+        }).when('/choose', {
             templateUrl : 'choose.html',
             controller : 'ChooseWifiController'
-        }).when('/partials/password', {
-            templateUrl : 'password.html',
+        }).when('/password', {
+            templateUrl : '/partials/password.html',
             controller : 'EnterPasswordController'
-        }).when('/partials/reconnect', {
-            templateUrl : 'localWifi.html',
+        }).when('/reconnect', {
+            templateUrl : '/partials/localWifi.html',
             controller : 'SwitchToLocalController'
-        }).when('/partials/landing', {
-            templateUrl : 'landing.html',
+        }).when('/landing', {
+            templateUrl : '/partials/landing.html',
             controller : 'LandingController'
         })
         .otherwise({

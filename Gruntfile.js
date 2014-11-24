@@ -51,6 +51,6 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks("grunt-contrib-jade");
     grunt.loadNpmTasks('grunt-browserify');
-    grunt.registerTask('default', ['browserify']);
+    grunt.registerTask('default', ['browserify', 'less', 'jade']);
 
 };

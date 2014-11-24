@@ -155,28 +155,28 @@ var routes = require('../node_modules/angular-route/angular-route-index');
 angular.module('TweetableObjects', ['ngRoute'])
     .config(['$routeProvider',function($routeProvider){
         $routeProvider.when('/welcome/:handle', {
-            templateUrl : 'bootingUp.html',
+            templateUrl : '/partials/bootingUp.html',
             controller : 'BootingUpController'
         }).when('/', {
-            templateUrl : 'bootingUp.html',
+            templateUrl : '/partials/bootingUp.html',
             controller : 'BootingUpController'
         }).when('/ready', {
-            templateUrl : 'ready.html',
+            templateUrl : '/partials/ready.html',
             controller : 'ReadyController'
         }).when('/littlebits', {
-            templateUrl : 'littlebitsWifi.html',
+            templateUrl : '/partials/littlebitsWifi.html',
             controller : 'LittleBitsWifiController'
         }).when('/choose', {
             templateUrl : 'choose.html',
             controller : 'ChooseWifiController'
         }).when('/password', {
-            templateUrl : 'password.html',
+            templateUrl : '/partials/password.html',
             controller : 'EnterPasswordController'
         }).when('/reconnect', {
-            templateUrl : 'localWifi.html',
+            templateUrl : '/partials/localWifi.html',
             controller : 'SwitchToLocalController'
         }).when('/landing', {
-            templateUrl : 'landing.html',
+            templateUrl : '/partials/landing.html',
             controller : 'LandingController'
         })
         .otherwise({
