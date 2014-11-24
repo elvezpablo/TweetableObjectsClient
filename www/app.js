@@ -152,7 +152,7 @@ var routes = require('../node_modules/angular-route/angular-route-index');
 //});
 
 // console.log("angualr %o", angular);
-angular.module('TweetableObjects', ['ngRoute', 'ngCookies'])
+angular.module('TweetableObjects', ['ngRoute'])
     .config(['$routeProvider',function($routeProvider){
         $routeProvider.when('/welcome/:handle', {
             templateUrl : 'bootingUp.html',
@@ -38202,4 +38202,4 @@ Emitter.prototype.hasListeners = function(event){
 
 },{}],35:[function(require,module,exports){
 module.exports=require(20)
-},{"/Users/paul.rangel/Desktop/TwitterLittleBits/tweetable-browserify/libs/cloud-client-api-http/node_modules/superagent/node_modules/reduce-component/index.js":20}]},{},[8]);
+},{"/Users/paul.rangel/Desktop/TwitterLittleBits/TweetableObjectsClient/libs/cloud-client-api-http/node_modules/superagent/node_modules/reduce-component/index.js":20}]},{},[8]);

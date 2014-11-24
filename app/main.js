@@ -13,7 +13,7 @@ var routes = require('../node_modules/angular-route/angular-route-index');
 //});
 
 // console.log("angualr %o", angular);
-angular.module('TweetableObjects', ['ngRoute', 'ngCookies'])
+angular.module('TweetableObjects', ['ngRoute'])
     .config(['$routeProvider',function($routeProvider){
         $routeProvider.when('/welcome/:handle', {
             templateUrl : 'bootingUp.html',
