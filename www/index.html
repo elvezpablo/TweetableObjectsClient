@@ -4,18 +4,28 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Tweetable Objects 0.1.0</title>
+  <meta name="robots" content="nofollow">
+  <title>Tweetable Objects 0.2.0</title>
   <link href="https://abs.twimg.com/favicons/favicon.ico" rel="shortcut icon" type="image/x-icon">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
   <link type="text/css" rel="stylesheet" href="https://abs.twimg.com/font/gotham-narrow-v1.css" media="all">
   <link rel="stylesheet" href="css/app.css">
   <script src="app.js"></script>
 </head>
 <body>
   <div id="header">
-    <div id="header-content"><a href="tweetkit.co"><img src="http://images.tweet.twitter.com/EloquaImages/clients/TwitterInc/{3f16eddd-116b-4735-92fd-1dab9f2cfd4a}_gsc_twitter_logo.png" border="0" alt="Twitter" class="logo"></a></div>
+    <div class="header-content"><a href="tweetkit.co"><img src="http://images.tweet.twitter.com/EloquaImages/clients/TwitterInc/{3f16eddd-116b-4735-92fd-1dab9f2cfd4a}_gsc_twitter_logo.png" border="0" alt="Twitter" class="logo"></a></div>
   </div>
-  <div ng-app="TweetableObjects">
+  <div id="content" ng-app="TweetableObjects" ng-controller="MainController">
+    <div class="sub-header">
+      <div class="step">{{ description }}</div>
+      <div class="timeline"></div>
+    </div>
     <div ng-view class="page-container"></div>
+  </div>
+  <div id="footer">
+    <div class="footer-content">
+      <div class="twitter-inc">Twitter Inc.</div>
+      <div class="confidential">Confidential Twitter Internal Information.</div>
+    </div>
   </div>
 </body>

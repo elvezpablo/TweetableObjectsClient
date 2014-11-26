@@ -84,14 +84,11 @@ module.exports = [ '$scope', '$timeout', '$location', '$window', 'UriMonitor','C
     });
 
 
-    handleOffline = function() {
-        console.log("connecting...");
+    var handleOffline = function() {
         $scope.$apply(function() {
-            console.log("apply: ");
             $scope.status =  { message : CONNECTING_MSG };
         })
     };
-
     $window.addEventListener("offline",handleOffline);
 
     checkLittleBits.start();
@@ -134,13 +131,37 @@ module.exports = ['$scope', '$location', '$timeout', 'UriMonitor', function($sco
 //    }, 2500);
 }];
 },{}],7:[function(require,module,exports){
+/**
+ * Created by paul.rangel on 11/26/14.
+ */
+module.exports = ['$scope', '$location','$route', function($scope, $location, $route) {
+    $scope.description = "hello!";
+}];
+},{}],8:[function(require,module,exports){
 module.exports = ['$scope', '$location', function($scope, $location) {
     console.log("Ready");
     $scope.next = function() {
         $location.url("littlebits");
     }
 }];
-},{}],8:[function(require,module,exports){
+},{}],9:[function(require,module,exports){
+/**
+ * Created by paul.rangel on 11/26/14.
+ */
+module.exports = [function() {
+    return {
+        restrict : "E",
+        replace : true,
+        template : "<div>timeline</div>",
+        controller : function($scope, $element) {
+
+        },
+        link : function($scope, $element, $attrs) {
+
+        }
+    }
+}];
+},{}],10:[function(require,module,exports){
 var littlebits = require('../libs/cloud-client-api-http/');
 var angular = require('../node_modules/angular/angular-index');
 var routes = require('../node_modules/angular-route/angular-route-index');
@@ -187,6 +208,7 @@ angular.module('TweetableObjects', ['ngRoute'])
             redirectTo: '/'
         });
     }])
+    .controller('MainController', require('./controllers/main'))
     .controller('BootingUpController', require('./controllers/bootingUp'))
     .controller('ReadyController', require('./controllers/ready'))
     .controller('LittleBitsWifiController', require('./controllers/littlebitsWifi'))
@@ -196,8 +218,9 @@ angular.module('TweetableObjects', ['ngRoute'])
     .controller('LandingController', require('./controllers/landing'))
     .factory('CloudbitWifiSetup', require('./services/cloudbitWifiSetup'))
     .factory('UriMonitor', require('./services/uriMonitor'))
+    .directive('timline', require('./directives/timeline'))
     ;
-},{"../libs/cloud-client-api-http/":12,"../node_modules/angular-route/angular-route-index":24,"../node_modules/angular/angular-index":26,"./controllers/bootingUp":1,"./controllers/chooseWifi":2,"./controllers/enterPassword":3,"./controllers/landing":4,"./controllers/littlebitsWifi":5,"./controllers/localWifi":6,"./controllers/ready":7,"./services/cloudbitWifiSetup":9,"./services/uriMonitor":10}],9:[function(require,module,exports){
+},{"../libs/cloud-client-api-http/":14,"../node_modules/angular-route/angular-route-index":26,"../node_modules/angular/angular-index":28,"./controllers/bootingUp":1,"./controllers/chooseWifi":2,"./controllers/enterPassword":3,"./controllers/landing":4,"./controllers/littlebitsWifi":5,"./controllers/localWifi":6,"./controllers/main":7,"./controllers/ready":8,"./directives/timeline":9,"./services/cloudbitWifiSetup":11,"./services/uriMonitor":12}],11:[function(require,module,exports){
 /**
  * Created by paul.rangel on 11/19/14.
  */
@@ -302,7 +325,7 @@ module.exports = ['$http', '$q', function($http, $q) {
         }
     };
 }];
-},{}],10:[function(require,module,exports){
+},{}],12:[function(require,module,exports){
 /**
  * Created by paul.rangel on 11/20/14.
  */
@@ -311,7 +334,7 @@ module.exports = ['$http', '$q', function($http, $q) {
 module.exports = [  function() {
     return require("../../node_modules/uri-monitor");
 }];
-},{"../../node_modules/uri-monitor":28}],11:[function(require,module,exports){
+},{"../../node_modules/uri-monitor":30}],13:[function(require,module,exports){
 exports.opt_to_pp = opt_to_pp;
 
 
@@ -371,7 +394,7 @@ function opt_to_pp(path, method, pp_name, opts) {
 
 
 
-},{}],12:[function(require,module,exports){
+},{}],14:[function(require,module,exports){
 var merge =  require('lodash').merge;
 var make_method = require('./make-method');
 var routes = require('./routes');
@@ -409,7 +432,7 @@ function API(base_defaults){
 // Private
 
 module.exports._process_signature = require('./method-process-signature');
-},{"./make-method":13,"./method-process-signature":14,"./route-utils":15,"./routes":16,"lodash":17}],13:[function(require,module,exports){
+},{"./make-method":15,"./method-process-signature":16,"./route-utils":17,"./routes":18,"lodash":19}],15:[function(require,module,exports){
 var process_signature = require('./method-process-signature');
 var lo = require('lodash'),
     merge = lo.merge;
@@ -435,7 +458,7 @@ function make_method(base_defaults, f){
 
   return todo_name_me;
 }
-},{"./method-process-signature":14,"lodash":17}],14:[function(require,module,exports){
+},{"./method-process-signature":16,"lodash":19}],16:[function(require,module,exports){
 var snakeify = require('to-snake-case');
 var lo = require('lodash'),
     merge = lo.merge,
@@ -481,7 +504,7 @@ function normalize_key_case(options){
     o[snakeify(k)] = v;
   }
 }
-},{"lodash":17,"to-snake-case":21}],15:[function(require,module,exports){
+},{"lodash":19,"to-snake-case":23}],17:[function(require,module,exports){
 var cust = require('./customizations');
 var sa = require('superagent');
 
@@ -573,7 +596,7 @@ function extract_err(res){
   if (res.body && res.body.message) err.message = res.body.message;
   return err;
 }
-},{"./customizations":11,"superagent":18}],16:[function(require,module,exports){
+},{"./customizations":13,"superagent":20}],18:[function(require,module,exports){
 
 // Generated from scripts/download-routes.js on Wed Jun 11 2014 00:22:37 GMT-0400 (EDT)
 
@@ -1034,7 +1057,7 @@ module.exports = [
     "version": "2"
   }
 ];
-},{}],17:[function(require,module,exports){
+},{}],19:[function(require,module,exports){
 (function (global){
 /**
  * @license
@@ -7823,7 +7846,7 @@ module.exports = [
 }.call(this));
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],18:[function(require,module,exports){
+},{}],20:[function(require,module,exports){
 /**
  * Module dependencies.
  */
@@ -8829,7 +8852,7 @@ request.put = function(url, data, fn){
 
 module.exports = request;
 
-},{"emitter":19,"reduce":20}],19:[function(require,module,exports){
+},{"emitter":21,"reduce":22}],21:[function(require,module,exports){
 
 /**
  * Expose `Emitter`.
@@ -8987,7 +9010,7 @@ Emitter.prototype.hasListeners = function(event){
   return !! this.listeners(event).length;
 };
 
-},{}],20:[function(require,module,exports){
+},{}],22:[function(require,module,exports){
 
 /**
  * Reduce `arr` with `fn`.
@@ -9012,7 +9035,7 @@ module.exports = function(arr, fn, initial){
   
   return curr;
 };
-},{}],21:[function(require,module,exports){
+},{}],23:[function(require,module,exports){
 var toSpace = require('to-space-case');
 
 
@@ -9035,7 +9058,7 @@ function toSnakeCase (string) {
   return toSpace(string).replace(/\s/g, '_');
 }
 
-},{"to-space-case":22}],22:[function(require,module,exports){
+},{"to-space-case":24}],24:[function(require,module,exports){
 
 var clean = require('to-no-case');
 
@@ -9060,7 +9083,7 @@ function toSpaceCase (string) {
     return match ? ' ' + match : '';
   });
 }
-},{"to-no-case":23}],23:[function(require,module,exports){
+},{"to-no-case":25}],25:[function(require,module,exports){
 
 /**
  * Expose `toNoCase`.
@@ -9135,10 +9158,10 @@ function uncamelize (string) {
     return previous + ' ' + uppers.toLowerCase().split('').join(' ');
   });
 }
-},{}],24:[function(require,module,exports){
+},{}],26:[function(require,module,exports){
 require('./angular-route.js');
 module.exports = angular;
-},{"./angular-route.js":25}],25:[function(require,module,exports){
+},{"./angular-route.js":27}],27:[function(require,module,exports){
 /**
  * @license AngularJS v1.3.2
  * (c) 2010-2014 Google, Inc. http://angularjs.org
@@ -10122,10 +10145,10 @@ function ngViewFillContentFactory($compile, $controller, $route) {
 
 })(window, window.angular);
 
-},{}],26:[function(require,module,exports){
+},{}],28:[function(require,module,exports){
 require('./angular.js');
 module.exports = angular;
-},{"./angular.js":27}],27:[function(require,module,exports){
+},{"./angular.js":29}],29:[function(require,module,exports){
 /**
  * @license AngularJS v1.3.2
  * (c) 2010-2014 Google, Inc. http://angularjs.org
@@ -35848,7 +35871,7 @@ var styleDirective = valueFn({
 })(window, document);
 
 !window.angular.$$csp() && window.angular.element(document).find('head').prepend('<style type="text/css">@charset "UTF-8";[ng\\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\\:form{display:block;}</style>');
-},{}],28:[function(require,module,exports){
+},{}],30:[function(require,module,exports){
 var EventEmitter2 = require('eventemitter2').EventEmitter2;
 var request = require('superagent');
 var log = require('debug')('uri-monitor');
@@ -35951,7 +35974,7 @@ function http_check(uri, timeout_ms, cb){
 
   return request(uri).timeout(timeout_ms).end(handle_response);
 }
-},{"debug":29,"eventemitter2":32,"superagent":33}],29:[function(require,module,exports){
+},{"debug":31,"eventemitter2":34,"superagent":35}],31:[function(require,module,exports){
 
 /**
  * This is the web browser implementation of `debug()`.
@@ -36100,7 +36123,7 @@ function load() {
 
 exports.enable(load());
 
-},{"./debug":30}],30:[function(require,module,exports){
+},{"./debug":32}],32:[function(require,module,exports){
 
 /**
  * This is the common logic for both the Node.js and web browser
@@ -36299,7 +36322,7 @@ function coerce(val) {
   return val;
 }
 
-},{"ms":31}],31:[function(require,module,exports){
+},{"ms":33}],33:[function(require,module,exports){
 /**
  * Helpers.
  */
@@ -36412,7 +36435,7 @@ function plural(ms, n, name) {
   return Math.ceil(ms / n) + ' ' + name + 's';
 }
 
-},{}],32:[function(require,module,exports){
+},{}],34:[function(require,module,exports){
 /*!
  * EventEmitter2
  * https://github.com/hij1nx/EventEmitter2
@@ -36987,7 +37010,7 @@ function plural(ms, n, name) {
   }
 }();
 
-},{}],33:[function(require,module,exports){
+},{}],35:[function(require,module,exports){
 /**
  * Module dependencies.
  */
@@ -38038,7 +38061,7 @@ request.put = function(url, data, fn){
 
 module.exports = request;
 
-},{"emitter":34,"reduce":35}],34:[function(require,module,exports){
+},{"emitter":36,"reduce":37}],36:[function(require,module,exports){
 
 /**
  * Expose `Emitter`.
@@ -38204,6 +38227,6 @@ Emitter.prototype.hasListeners = function(event){
   return !! this.listeners(event).length;
 };
 
-},{}],35:[function(require,module,exports){
-module.exports=require(20)
-},{"/Users/paul.rangel/Desktop/TwitterLittleBits/TweetableObjectsClient/libs/cloud-client-api-http/node_modules/superagent/node_modules/reduce-component/index.js":20}]},{},[8]);
+},{}],37:[function(require,module,exports){
+module.exports=require(22)
+},{"/Users/paul.rangel/Desktop/TwitterLittleBits/TweetableObjectsClient/libs/cloud-client-api-http/node_modules/superagent/node_modules/reduce-component/index.js":22}]},{},[10]);

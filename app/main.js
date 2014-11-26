@@ -44,6 +44,7 @@ angular.module('TweetableObjects', ['ngRoute'])
             redirectTo: '/'
         });
     }])
+    .controller('MainController', require('./controllers/main'))
     .controller('BootingUpController', require('./controllers/bootingUp'))
     .controller('ReadyController', require('./controllers/ready'))
     .controller('LittleBitsWifiController', require('./controllers/littlebitsWifi'))
@@ -53,4 +54,5 @@ angular.module('TweetableObjects', ['ngRoute'])
     .controller('LandingController', require('./controllers/landing'))
     .factory('CloudbitWifiSetup', require('./services/cloudbitWifiSetup'))
     .factory('UriMonitor', require('./services/uriMonitor'))
+    .directive('timline', require('./directives/timeline'))
     ;

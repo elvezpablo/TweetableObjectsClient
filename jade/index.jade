@@ -4,17 +4,24 @@ head
     meta(http-equiv="X-UA-Compatible" content="IE=edge")
     meta(name="description" content="")
     meta(name="viewport" content="width=device-width, initial-scale=1")
-    title Tweetable Objects 0.1.0
+    meta(name="robots" content="nofollow")
+    title Tweetable Objects 0.2.0
     link(href="https://abs.twimg.com/favicons/favicon.ico" rel="shortcut icon" type="image/x-icon")
-    link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css")
     link(type="text/css" rel="stylesheet" href="https://abs.twimg.com/font/gotham-narrow-v1.css" media="all")
     link(rel="stylesheet" href="css/app.css")
     script(src="app.js")
 body
     #header
-        #header-content
+        .header-content
             a(href="tweetkit.co")
                 img(class="logo" src="http://images.tweet.twitter.com/EloquaImages/clients/TwitterInc/{3f16eddd-116b-4735-92fd-1dab9f2cfd4a}_gsc_twitter_logo.png" border="0" alt="Twitter")
 
-    div(ng-app="TweetableObjects")
+    #content(ng-app="TweetableObjects" ng-controller="MainController" )
+        .sub-header
+            .step {{ description }}
+            .timeline
         .page-container(ng-view)
+    #footer
+        .footer-content
+            .twitter-inc Twitter Inc.
+            .confidential Confidential Twitter Internal Information.
