@@ -13,12 +13,14 @@
 </head>
 <body>
   <div id="header">
-    <div class="header-content"><a href="tweetkit.co"><img src="http://images.tweet.twitter.com/EloquaImages/clients/TwitterInc/{3f16eddd-116b-4735-92fd-1dab9f2cfd4a}_gsc_twitter_logo.png" border="0" alt="Twitter" class="logo"></a></div>
+    <div class="header-content"><a href="tweetkit.co">Tweetkit.co</a></div>
   </div>
   <div id="content" ng-app="TweetableObjects" ng-controller="MainController">
     <div class="sub-header">
-      <div class="step">{{ description }}</div>
-      <div class="timeline"></div>
+      <div class="centered-container">
+        <h3 class="step-title">{{ description }}</h3>
+        <div class="timeline">test</div>
+      </div>
     </div>
     <div ng-view class="page-container"></div>
   </div>

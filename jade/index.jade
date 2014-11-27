@@ -13,13 +13,13 @@ head
 body
     #header
         .header-content
-            a(href="tweetkit.co")
-                img(class="logo" src="http://images.tweet.twitter.com/EloquaImages/clients/TwitterInc/{3f16eddd-116b-4735-92fd-1dab9f2cfd4a}_gsc_twitter_logo.png" border="0" alt="Twitter")
+            a(href="tweetkit.co") Tweetkit.co
 
     #content(ng-app="TweetableObjects" ng-controller="MainController" )
         .sub-header
-            .step {{ description }}
-            .timeline
+            .centered-container
+                h3.step-title {{ description }}
+                .timeline test
         .page-container(ng-view)
     #footer
         .footer-content

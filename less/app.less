@@ -8,6 +8,8 @@
 @font-narrow: 'Gotham Narrow', Helvetica,Arial,sans-serif;
 @header-height: 110px;
 
+@width-content: 740px;
+@width-logo: 36px;
 
 body {
   margin: 0px;
@@ -19,40 +21,59 @@ body {
   color: @blue-text;
 }
 
-
-.btn {border-radius: 0;}
+.centered-container {
+  width: @width-content;
+  margin: 0 auto;
+}
 
 #header {
   background-color: @blue-twitter;
   height: @header-height;
-
   .header-content {
     display: block;
+    padding: 0;
+    width: ( @width-content + (@width-logo*2));
     margin: 0 auto;
-    width: 740px;
-    padding-left: 30px;
-    padding-right: 30px;
-    padding-top: 11px;
-    font-family: @font-narrow;
     a {
-
+      background: transparent url('../images/twitter-bird-white-small.png') -1px 0 no-repeat ;
+      background-size: 22px 18px;
+      font-size: 18px;
+      font-family: @font-narrow;
+      font-weight: lighter;
+      color: white;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 2px @width-logo;
+      line-height: @header-height;
+      letter-spacing: 3px;
     }
   }
 
 }
 
-
 #content {
   .sub-header {
-    .step {
+    background-color: @blue-faint;
+    height: 56px;
+    .centered-container > * {
+      width: 50%;
+      line-height: 56px;
+    }
+    h3.step-title {
       font-family: @font-narrow;
       text-transform: uppercase;
       color: @blue-deep;
-      font-size: 11px;
+      font-size: 10px;
+      margin: 0;
+      letter-spacing: 2px;
+      font-weight: lighter;
+      float: left;
     }
     .timeline {
-
+      float: right;
+      text-align: right;
     }
+
   }
 }
 

@@ -1,6 +1,7 @@
 var littlebits = require('../libs/cloud-client-api-http/');
 var angular = require('../node_modules/angular/angular-index');
 var routes = require('../node_modules/angular-route/angular-route-index');
+var routes = require('../node_modules/angular-cookies/angular-cookies-index');
 
 //require('../node_modules/angular-route/');
 
@@ -13,7 +14,7 @@ var routes = require('../node_modules/angular-route/angular-route-index');
 //});
 
 // console.log("angualr %o", angular);
-angular.module('TweetableObjects', ['ngRoute'])
+angular.module('TweetableObjects', ['ngRoute', 'ngCookies'])
     .config(['$routeProvider',function($routeProvider){
         $routeProvider.when('/welcome/:handle', {
             templateUrl : '/partials/bootingUp.html',
