@@ -8,7 +8,7 @@
 @font-narrow: 'Gotham Narrow', Helvetica,Arial,sans-serif;
 @header-height: 110px;
 
-@width-content: 740px;
+@width-content: 800px;
 @width-logo: 36px;
 
 body {
@@ -35,7 +35,7 @@ body {
     width: ( @width-content + (@width-logo*2));
     margin: 0 auto;
     a {
-      background: transparent url('../images/twitter-bird-white-small.png') -1px 0 no-repeat ;
+      background: transparent url('../images/twitter-bird-white-small.png') 0 0 no-repeat ;
       background-size: 22px 18px;
       font-size: 18px;
       font-family: @font-narrow;
@@ -43,7 +43,7 @@ body {
       color: white;
       text-transform: uppercase;
       text-decoration: none;
-      padding: 2px @width-logo;
+      padding: 0 @width-logo;
       line-height: @header-height;
       letter-spacing: 3px;
     }
@@ -69,12 +69,61 @@ body {
       font-weight: lighter;
       float: left;
     }
-    .timeline {
+    .timeline-container {
       float: right;
       text-align: right;
     }
 
   }
+}
+
+
+#timeline {
+  position: relative;
+  display: inline-block;
+  > .line {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: @blue-deep;
+    margin: 29px 25px 24px 25px;
+    z-index: 1;
+
+
+  }
+
+  div.active {
+    background-color: @blue-twitter;
+  }
+
+  a {
+    position: relative;
+    display: inline-block;
+    margin: 0px 18px;
+    padding: 0px 4px;
+    background: @blue-deep;
+    color:@blue-deep;
+    font-family: @font-narrow;
+    font-weight: lighter;
+    border-radius: 10px;
+    line-height: 13px;
+    font-size: 8px;
+    z-index: 10;
+    border: 2px solid transparent;
+    cursor: default;
+  }
+
+  a.active {
+
+  }
+
+  a.current {
+    border: 2px solid @blue-twitter;
+    color: #ffffff;
+  }
+
 }
 
 .page-container {

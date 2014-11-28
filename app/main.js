@@ -55,5 +55,5 @@ angular.module('TweetableObjects', ['ngRoute', 'ngCookies'])
     .controller('LandingController', require('./controllers/landing'))
     .factory('CloudbitWifiSetup', require('./services/cloudbitWifiSetup'))
     .factory('UriMonitor', require('./services/uriMonitor'))
-    .directive('timline', require('./directives/timeline'))
+    .directive('timeline', require('./directives/timeline'))
     ;
