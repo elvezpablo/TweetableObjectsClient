@@ -18,7 +18,7 @@ body
     #content(ng-app="TweetableObjects" ng-controller="MainController" )
         .sub-header
             .centered-container
-                h3.step-title {{ description }}
+                h3.step-title {{ paging.description }}
                 .timeline-container
                     timeline(current="paging.current")
         .page-container(ng-view)

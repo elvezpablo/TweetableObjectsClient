@@ -2,6 +2,6 @@ module.exports = ['$scope', '$location', 'Paging', function($scope, $location, P
     console.log("Ready");
     Paging.setInfo(1, "STEP ONE: SETTING UP YOUR DEVICE");
     $scope.next = function() {
-        $location.url("littlebits");
+        $location.url("/2");
     }
 }];

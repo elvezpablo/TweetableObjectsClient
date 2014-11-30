@@ -152,6 +152,7 @@ body {
 .page-container {
   width: 740px;
   margin: 0px auto 0px auto;
+  text-align: center;
 }
 
 .video {
@@ -159,15 +160,48 @@ body {
   height: 400px;
 }
 
+.background-holder {
+  height: 515px;
+  margin: 0 0 20px 0;
+}
 
-h4 {
+.setting-up {
+  background: transparent url('../images/device.png') bottom center no-repeat;
+  background-size: 641px 262px;
+}
+
+h1 {
   text-align: center;
-  text-transform: uppercase;
+  font-family: @font-narrow;
+  color: @blue-deep;
+  letter-spacing: 1px;
+}
+
+p {
+  margin: 5px 0 ;
+  font-family: @font-narrow;
+  font-size: 14px;
 }
 
 h3 {
   margin: 0 0 20px 0;
 }
+
+.wifi-computer-win7 {
+  background: transparent url('../images/screenshot-wifi-win7.jpg') bottom center no-repeat;
+  background-size: 348px 515px;
+}
+
+.wifi-computer-win8 {
+  background: transparent url('../images/screenshot-wifi-win8.jpg') bottom center no-repeat;
+  background-size: 401px 429px;
+}
+
+.wifi-computer-mac {
+  background: transparent url('../images/screenshot-wifi-mac.jpg') bottom center no-repeat;
+  background-size: 383px 379px;
+}
+
 
 h5.choose-wifi {
   font-weight: bold;
@@ -179,23 +213,6 @@ input[type="password"], input[type="text"] {
   margin: 10px 0 20px 0;
 }
 
-.instruction-step {
-  margin: 20px 0;
-}
-
-.instruction-step > img,  .instruction-step > div.left {
-  float: left;
-}
-
-.center {
-  margin: 0 auto;
-}
-
-.instruction-step div.content {
-  width: 380px;
-  padding: 20px;
-  font-size: 18px;
-}
 
 .clearfix:after {
   visibility: hidden;
@@ -208,15 +225,6 @@ input[type="password"], input[type="text"] {
 * html .clearfix             { zoom: 1; } /* IE6 */
 *:first-child+html .clearfix { zoom: 1; } /* IE7 */
 
-.wifi-waiting {
-  background-color: #d1e0ea;
-  text-align: center;
-  font-size: 12px;
-  border-radius: 3px;
-  padding: 15px;
-  margin: 30px 15px 0 15px;
-
-}
 
 .spinner {
   width: 40px;

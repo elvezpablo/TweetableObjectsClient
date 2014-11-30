@@ -25,7 +25,7 @@ angular.module('TweetableObjects', ['ngRoute', 'ngCookies'])
     .config(['$routeProvider',function($routeProvider){
         $routeProvider.when('/', {
             templateUrl : '/partials/movie.html',
-            controller : 'MovieController'
+            controller : 'MovieController'/2
         }).when('/1', {
             templateUrl : '/partials/ready.html',
             controller : 'ReadyController'
@@ -62,6 +62,7 @@ angular.module('TweetableObjects', ['ngRoute', 'ngCookies'])
     .controller('LandingController', require('./controllers/landing'))
     .factory('CloudbitWifiSetup', require('./services/cloudbitWifiSetup'))
     .factory('UriMonitor', require('./services/uriMonitor'))
+    .factory('ClientInfo', require('./services/clientinfo'))
     .service('Paging', require('./services/paging'))
     .directive('timeline', require('./directives/timeline'))
     .directive('vimeo', require('./directives/vimeo'))
