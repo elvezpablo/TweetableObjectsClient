@@ -20,9 +20,10 @@ body
             .centered-container
                 h3.step-title {{ description }}
                 .timeline-container
-                    timeline
+                    timeline(current="paging.current")
         .page-container(ng-view)
     #footer
         .footer-content
-            .twitter-inc Twitter Inc.
-            .confidential Confidential Twitter Internal Information.
+            .centered-container.footer-logo
+                .twitter-inc Twitter Inc.
+                .confidential Confidential Twitter Internal Information.

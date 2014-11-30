@@ -15,45 +15,54 @@ var routes = require('../node_modules/angular-cookies/angular-cookies-index');
 
 // console.log("angualr %o", angular);
 angular.module('TweetableObjects', ['ngRoute', 'ngCookies'])
+    /*
+     .when('/1', {
+     templateUrl : '/partials/bootingUp.html',
+     controller : 'BootingUpController'
+     })
+     */
+
     .config(['$routeProvider',function($routeProvider){
-        $routeProvider.when('/welcome/:handle', {
-            templateUrl : '/partials/bootingUp.html',
-            controller : 'BootingUpController'
-        }).when('/', {
-            templateUrl : '/partials/bootingUp.html',
-            controller : 'BootingUpController'
-        }).when('/ready', {
+        $routeProvider.when('/', {
+            templateUrl : '/partials/movie.html',
+            controller : 'MovieController'
+        }).when('/1', {
             templateUrl : '/partials/ready.html',
             controller : 'ReadyController'
-        }).when('/littlebits', {
+        }).when('/2', {
             templateUrl : '/partials/littlebitsWifi.html',
             controller : 'LittleBitsWifiController'
-        }).when('/choose', {
+        }).when('/3', {
             templateUrl : '/partials/choose.html',
             controller : 'ChooseWifiController'
-        }).when('/password', {
+        }).when('/4', {
             templateUrl : '/partials/password.html',
             controller : 'EnterPasswordController'
-        }).when('/reconnect', {
+        }).when('/5', {
             templateUrl : '/partials/localWifi.html',
-            controller : 'SwitchToLocalController'
-        }).when('/landing', {
+            controller : 'LocalWifiController'
+        }).when('/6', {
             templateUrl : '/partials/landing.html',
             controller : 'LandingController'
         })
-        .otherwise({
-            redirectTo: '/'
-        });
+            .otherwise({
+                redirectTo: '/'
+            });
+    }])
+.config(['$routeProvider',function($routeProvider){
     }])
     .controller('MainController', require('./controllers/main'))
+    .controller('MovieController', require('./controllers/movie'))
     .controller('BootingUpController', require('./controllers/bootingUp'))
     .controller('ReadyController', require('./controllers/ready'))
     .controller('LittleBitsWifiController', require('./controllers/littlebitsWifi'))
     .controller('ChooseWifiController', require('./controllers/chooseWifi'))
     .controller('EnterPasswordController', require('./controllers/enterPassword'))
-    .controller('SwitchToLocalController', require('./controllers/localWifi'))
+    .controller('LocalWifiController', require('./controllers/localWifi'))
     .controller('LandingController', require('./controllers/landing'))
     .factory('CloudbitWifiSetup', require('./services/cloudbitWifiSetup'))
     .factory('UriMonitor', require('./services/uriMonitor'))
+    .service('Paging', require('./services/paging'))
     .directive('timeline', require('./directives/timeline'))
+    .directive('vimeo', require('./directives/vimeo'))
     ;

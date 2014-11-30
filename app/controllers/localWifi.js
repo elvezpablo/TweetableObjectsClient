@@ -1,4 +1,4 @@
-module.exports = ['$scope', '$location', '$timeout', 'UriMonitor', function($scope ,$location, $timeout, UriMonitor) {
+module.exports = ['$scope', '$location', '$timeout', 'UriMonitor', 'Paging', function($scope ,$location, $timeout, UriMonitor, Paging) {
     console.log("LocalWifi");
     // using the
     var url = "https://api-http.littlebitscloud.cc/ping";

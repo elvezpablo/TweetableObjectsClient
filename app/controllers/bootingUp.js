@@ -1,12 +1,6 @@
-module.exports = ['$scope', '$location','$route', function($scope, $location, $route) {
+module.exports = ['$scope', '$location','$route', 'Paging', function($scope, $location, $route, Paging) {
     console.log("BootingUp");
-    console.log($route.current.params);
-    if($route.current.params.handle) {
-        $scope.handle = $route.current.params.handle;
-    }
-
-    $scope.next = function() {
-        $location.url("ready");
-    }
+    //console.log($route.current.params);
+    // Paging.setInfo(0, "STEP ZERO: TURN ON YOUR DEVICE");
 
 }];

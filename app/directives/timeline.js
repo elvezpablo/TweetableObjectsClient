@@ -16,35 +16,43 @@ module.exports = [function() {
             var current = 0;
 
             var setUp = function(c) {
+                console.log("setup")
                 for(var i=1; i <= steps; i++) {
                     if(c == i) {
                         element.append("<a class=\"current\">"+(i)+"</a>");
                     } else {
                         element.append("<a>"+(i)+"</a>");
                     }
-
                 }
             };
 
             var update = function(c) {
                 console.log("update: %o", c);
-                if(c > 0) {
-                    element.children().addClass("active");
-                } else {
-                    console.log("removing class");
+                if(c == null) {
                     element.children().removeClass("active");
+                    element.children().removeClass("current");
+                    return;
+                }
+
+                if(c == 0) {
+                    element.children().removeClass("current");
+                    element.children().addClass("active");
+                    return;
                 }
                 var dots = element.children('a');
                 angular.forEach(dots, function(dot, index) {
                         if(index == c) {
+                            angular.element(dot).addClass("active");
                             angular.element(dot).addClass("current");
                         } else {
                             angular.element(dot).removeClass("current");
+                            angular.element(dot).removeClass("active");
                         }
+
                 });
             };
 
-            scope.watch("current", function(_new, _old) {
+            scope.$watch("current", function(_new, _old) {
                     current = _new;
                     update(current);
 
@@ -54,7 +62,7 @@ module.exports = [function() {
             //element.on("click", function() {
             //    update((current <= steps)? ++current : 0 );
             //});
-            setUp(current);
+            setUp();
         }
 
     }

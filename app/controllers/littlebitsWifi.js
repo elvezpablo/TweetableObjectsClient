@@ -1,5 +1,8 @@
-module.exports = [ '$scope', '$timeout', '$location', '$window', 'UriMonitor','CloudbitWifiSetup', function($scope, $timeout, $location, $window, UriMonitor, CloudbitWifiSetup) {
+module.exports = [ '$scope', '$timeout', '$location', '$window', 'UriMonitor','CloudbitWifiSetup', 'Paging', function($scope, $timeout, $location, $window, UriMonitor, CloudbitWifiSetup, Paging) {
     console.log("Little Bits Wifi");
+
+    Paging.setInfo()
+
     /*
      The main thing that's tricky in the flow is maintaining application
      state robustly. We are using a URImonitor to check the /identify endpoint

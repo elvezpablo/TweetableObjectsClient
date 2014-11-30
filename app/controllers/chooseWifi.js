@@ -1,4 +1,4 @@
-module.exports = ['$scope', '$location', 'CloudbitWifiSetup', function($scope, $location, CloudbitWifiSetup) {
+module.exports = ['$scope', '$location', 'CloudbitWifiSetup', 'Paging', function($scope, $location, CloudbitWifiSetup, Paging) {
     console.log("Choose Wifi");
     $scope.wifis = null;
 
