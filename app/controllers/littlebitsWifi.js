@@ -17,13 +17,12 @@ module.exports = [ '$scope', '$timeout', '$location', '$window', 'UriMonitor','C
     $scope.wifiImage = _getCSS(ClientInfo.device, ClientInfo.platform);
 
     if(DEMO) {
-        //$timeout(function() {
-        //    $scope.status = CONNECTED_MSG;
-        //    $timeout(function() {
-        //        $location.path("/3");
-        //        },1500);
-        //}, 5000);
-
+        $timeout(function() {
+            $scope.status = CONNECTED_MSG;
+            $timeout(function() {
+                $location.path("/3");
+                },1500);
+        }, 5000);
     } else {
         /*
          Note from littlebits

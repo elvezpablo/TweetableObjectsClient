@@ -10,7 +10,6 @@ module.exports = ['$window',  function($window) {
         _platform = userAgent.match(/(Windows|OS X|iOS|Android)/);
         if(_platform && _platform[1])
             _platform = _platform[1].toLocaleLowerCase();
-        console.log("_platform 0: "+_platform);
         switch ( _platform ) {
             case 'windows':
                 _device = 'computer';

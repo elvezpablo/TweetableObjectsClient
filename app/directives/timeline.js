@@ -16,7 +16,7 @@ module.exports = [function() {
             var current = 0;
 
             var setUp = function(c) {
-                console.log("setup")
+                //console.log("setup");
                 for(var i=1; i <= steps; i++) {
                     if(c == i) {
                         element.append("<a class=\"current\">"+(i)+"</a>");
@@ -27,7 +27,7 @@ module.exports = [function() {
             };
 
             var update = function(c) {
-                console.log("update: %o", c);
+                //console.log("update: %o", c);
                 if(c == null) {
                     element.children().removeClass("active");
                     element.children().removeClass("current");

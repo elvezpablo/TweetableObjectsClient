@@ -1,4 +1,4 @@
 //div(videoid="112687575" class="vimeo video")
 .movie-container
-    button(ng-hide="skipping" ng-click="skip()") Tap here to skip video
-    button(ng-show="skipping" ng-click="next()") Tap here to get started
+    a.btn(ng-hide="skipping.visible" ng-click="skip()") Tap here to skip video
+    a.btn(ng-show="skipping.visible" ng-click="next()") Tap here to get started

@@ -25,7 +25,7 @@ angular.module('TweetableObjects', ['ngRoute', 'ngCookies'])
     .config(['$routeProvider',function($routeProvider){
         $routeProvider.when('/', {
             templateUrl : '/partials/movie.html',
-            controller : 'MovieController'/2
+            controller : 'MovieController'
         }).when('/1', {
             templateUrl : '/partials/ready.html',
             controller : 'ReadyController'

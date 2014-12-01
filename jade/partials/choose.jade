@@ -1,10 +1,11 @@
-h4 Save your Wifi
-.instruction-step
-    .content.center(ng-hide="wifis")
-        | Finding your local wifi networks
+h1 Connecting the device to your wiﬁ network.
+p Check the lists of available access points then click on your local network.
+p The page will change once selected.
+
+    .wifi-content(ng-hide="wifis")
+        h3 Finding your local wifi networks
         .spinner
-    .content.center(ng-show="wifis")
-        | Select your local wifi to connect to your device
-        h5.choose-wifi Choose your network...
+    .wifi-content(ng-show="wifis")
+        h3 Select your local wifi to connect to your device
         ul.wifis
             li(ng-repeat="wifi in wifis" ng-if="wifi.ssid.length > 0" ng-click="wifiSelected(wifi)") {{ wifi.ssid }}

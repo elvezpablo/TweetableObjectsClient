@@ -1,18 +1,21 @@
 module.exports = ['$scope', '$location', 'CloudbitWifiSetup', 'Paging', function($scope, $location, CloudbitWifiSetup, Paging) {
 
-    var _consoleMaker = function(color) {
-        return function(k,v) {
-            console.log("%c %s: %o", "background-color: "+color, k, v);
+    Paging.setInfo(4,"STEP FOUR: ENTER A PASSWORD");
+
+    var DEMO = true;
+
+    if(DEMO) {
+        $scope.savePassword = function() {
+            $location.url('/5');
+        };
+    } else {
+        $scope.savePassword = function() {
+            CloudbitWifiSetup.save($scope.wifiPassword).then(function() {
+                $location.url('/5');
+            }, function(msg) {
+                _log("Error :", msg);
+            });
         }
-    };
-    var _log = _consoleMaker("salmon");
-
-    $scope.savePassword = function() {
-        CloudbitWifiSetup.save($scope.wifiPassword).then(function() {
-            $location.url('reconnect');
-        }, function(msg) {
-            _log("Error :", msg);
-        });
-
     }
+
 }];
