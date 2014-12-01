@@ -197,6 +197,11 @@ h3 {
   margin: 0 0 20px 0;
 }
 
+h3.reconnect {
+  color: @blue-deep;
+  margin: 20px 0;
+}
+
 .wifi-computer-win7 {
   background: transparent url('../images/screenshot-wifi-win7.jpg') bottom center no-repeat;
   background-size: 348px 515px;
@@ -246,77 +251,104 @@ h3 {
 
 }
 
-.btn {
-  background-color:#1e6398;
-  -moz-border-radius:7px;
-  -webkit-border-radius:7px;
-  border-radius:7px;
-  border:3px solid #55abed;
-  display:inline-block;
-  cursor:pointer;
-  color:#ffffff;
-  font-family: @font-narrow;
-  font-size:12px;
-  padding:8px 35px;
-  text-decoration:none;
-  text-transform: uppercase;
-}
+.password-content {
+  .form-control {
+    display: block;
+    margin: 5px 0;
+  }
+  input[type="text"] {
+    padding: 10px;
+    border: solid 3px @blue-twitter;
+    transition: border 0.3s;
+    outline: none;
+  }
 
-.btn:hover {
-  background-color:#0061a7;
-}
-.btn:active {
-  position:relative;
-  top:1px;
-}
-
-
-
-input[type="password"], input[type="text"] {
-  font-size: 18px;
-  margin: 10px 0 20px 0;
-}
-
-
-.clearfix:after {
-  visibility: hidden;
-  display: block;
-  font-size: 0;
-  content: " ";
-  clear: both;
-  height: 0;
-}
-* html .clearfix             { zoom: 1; } /* IE6 */
-*:first-child+html .clearfix { zoom: 1; } /* IE7 */
-
-
-.spinner {
-  width: 40px;
-  height: 40px;
-  margin: 20px auto;
-  background-color: #333;
-
-  border-radius: 100%;
-  -webkit-animation: scaleout 1.5s infinite ease-in-out;
-  animation: scaleout 1.5s infinite ease-in-out;
-}
-
-@-webkit-keyframes scaleout {
-  0% { -webkit-transform: scale(0.0) }
-  100% {
-    -webkit-transform: scale(1.0);
-    opacity: 0;
+  input[type="text"]:focus,
+  input[type="text"].focus {
+    border: solid 3px @blue-faint;
   }
 }
 
-@keyframes scaleout {
-  0% {
-    transform: scale(0.0);
-    -webkit-transform: scale(0.0);
-  } 100% {
-      transform: scale(1.0);
+.landing-content {
+  margin: 160px 0 0 0;
+  .btn {
+    margin: 80px 0 0 0;
+  }
+}
+
+
+  .btn {
+    background-color:#1e6398;
+    -moz-border-radius:7px;
+    -webkit-border-radius:7px;
+    border-radius:7px;
+    border:3px solid #55abed;
+    display:inline-block;
+    cursor:pointer;
+    color:#ffffff;
+    font-family: @font-narrow;
+    font-size:12px;
+    padding:8px 35px;
+    text-decoration:none;
+    text-transform: uppercase;
+  }
+
+  .btn:hover {
+    background-color:#0061a7;
+  }
+  .btn:active {
+    position:relative;
+    top:1px;
+  }
+
+
+
+  input[type="password"], input[type="text"] {
+    font-size: 18px;
+    margin: 10px 0 20px 0;
+  }
+
+
+  .clearfix:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+  }
+  * html .clearfix             { zoom: 1; } /* IE6 */
+  *:first-child+html .clearfix { zoom: 1; } /* IE7 */
+
+
+  .spinner {
+    width: 40px;
+    height: 40px;
+    margin: 20px auto;
+    background-color: #333;
+
+    border-radius: 100%;
+    -webkit-animation: scaleout 1.5s infinite ease-in-out;
+    animation: scaleout 1.5s infinite ease-in-out;
+  }
+
+  @-webkit-keyframes scaleout {
+    0% { -webkit-transform: scale(0.0) }
+    100% {
       -webkit-transform: scale(1.0);
       opacity: 0;
     }
-}
+  }
+
+  @keyframes scaleout {
+    0% {
+      transform: scale(0.0);
+      -webkit-transform: scale(0.0);
+    } 100% {
+        transform: scale(1.0);
+        -webkit-transform: scale(1.0);
+        opacity: 0;
+      }
+  }
+
 
