@@ -50,11 +50,22 @@ module.exports = function(grunt) {
                     }
                 ]
             }
+        },
+        rsync : {
+            stage : {
+                files : "www/",
+                options : {
+                    host : "rangelworks.com",
+                    user : "prangel",
+                    remoteBase : "~/tweetable.rangelworks.com"
+                }
+            }
         }
     });
     grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks("grunt-contrib-jade");
     grunt.loadNpmTasks("grunt-contrib-copy");
+    grunt.loadNpmTasks("grunt-rsync-2");
     grunt.loadNpmTasks('grunt-browserify');
     grunt.registerTask('default', ['browserify', 'less', 'jade']);
 
