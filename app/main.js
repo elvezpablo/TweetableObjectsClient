@@ -15,39 +15,32 @@ var routes = require('../node_modules/angular-cookies/angular-cookies-index');
 
 // console.log("angualr %o", angular);
 angular.module('TweetableObjects', ['ngRoute', 'ngCookies'])
-    /*
-     .when('/1', {
-     templateUrl : '/partials/bootingUp.html',
-     controller : 'BootingUpController'
-     })
-     */
-
     .config(['$routeProvider',function($routeProvider){
         $routeProvider.when('/', {
-            templateUrl : '/partials/movie.html',
+            templateUrl : 'partials/movie.html',
             controller : 'MovieController'
         }).when('/1', {
-            templateUrl : '/partials/ready.html',
+            templateUrl : 'partials/ready.html',
             controller : 'ReadyController'
         }).when('/2', {
-            templateUrl : '/partials/littlebitsWifi.html',
+            templateUrl : 'partials/littlebitsWifi.html',
             controller : 'LittleBitsWifiController'
         }).when('/3', {
-            templateUrl : '/partials/choose.html',
+            templateUrl : 'partials/choose.html',
             controller : 'ChooseWifiController'
         }).when('/4', {
-            templateUrl : '/partials/password.html',
+            templateUrl : 'partials/password.html',
             controller : 'EnterPasswordController'
         }).when('/5', {
-            templateUrl : '/partials/localWifi.html',
+            templateUrl : 'partials/localWifi.html',
             controller : 'LocalWifiController'
         }).when('/6', {
-            templateUrl : '/partials/landing.html',
+            templateUrl : 'partials/landing.html',
             controller : 'LandingController'
         })
-            .otherwise({
-                redirectTo: '/'
-            });
+        .otherwise({
+            redirectTo: '/'
+        });
     }])
 .config(['$routeProvider',function($routeProvider){
     }])

@@ -1,15 +1,10 @@
 module.exports = function(grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
-        jade : {
-            options : {
-                pretty : true
-            }
-        },
         browserify: {
             stage: {
                 files: {
-                    'www/app.js': ['app/main.js']
+                    'www/app.js': ['app/app.js']
                 }
             }
         },
@@ -34,7 +29,7 @@ module.exports = function(grunt) {
                 },{
                     cwd:"jade/partials",
                     src:["*.jade"],
-                    dest:"www/partials",
+                    dest:"partials",
                     expand:true,
                     ext:".html"
                 }]
@@ -60,13 +55,32 @@ module.exports = function(grunt) {
                     remoteBase : "~/tweetable.rangelworks.com"
                 }
             }
+        },
+        ngtemplates : {
+            default : {
+                options : {
+                    module : "TweetableObjects"
+                },
+                src : 'partials/**.html',
+                dest : "app/templates.js"
+            }
+        },
+        concat : {
+            default : {
+                src : ["app/main.js", "app/templates.js"],
+                dest : "app/app.js"
+            }
         }
     });
     grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks("grunt-contrib-jade");
     grunt.loadNpmTasks("grunt-contrib-copy");
+    grunt.loadNpmTasks("grunt-contrib-concat");
     grunt.loadNpmTasks("grunt-rsync-2");
     grunt.loadNpmTasks('grunt-browserify');
-    grunt.registerTask('default', ['browserify', 'less', 'jade']);
+    grunt.loadNpmTasks('grunt-angular-templates');
+    grunt.registerTask('default', ['browserify', 'less', 'templates', 'jade']);
+
+    grunt.registerTask('templates', ['ngtemplates', 'concat']);
 
 };

@@ -5,7 +5,7 @@ module.exports = ['$scope', '$location', '$timeout', 'CloudbitWifiSetup', 'Pagin
 
     $scope.wifis = null;
 
-    var DEMO = true;
+    var DEMO = false;
 
     if(DEMO) {
         $timeout(function( ) {

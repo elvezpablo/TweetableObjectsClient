@@ -3,7 +3,7 @@ module.exports = [ '$scope', '$timeout', '$location', '$window', 'UriMonitor','C
 
     Paging.setInfo(2,"STEP TWO: CONNECT TO LITTLE BITS WIFI");
 
-    var DEMO = true;
+    var DEMO = false;
 
     var _getCSS = function(device, platform) {
         // show mac bu default

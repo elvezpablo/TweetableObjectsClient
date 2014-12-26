@@ -2,7 +2,7 @@ module.exports = ['$scope', '$location', 'CloudbitWifiSetup', 'Paging', function
 
     Paging.setInfo(4,"STEP FOUR: ENTER A PASSWORD");
 
-    var DEMO = true;
+    var DEMO = false;
 
     if(DEMO) {
         $scope.savePassword = function() {
