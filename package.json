@@ -1,6 +1,6 @@
 {
   "name": "TweetableObjectsClient",
-  "version": "0.3.0",
+  "version": "0.8.0",
   "description": "Tweetable Object Client",
   "main": "www/index.html",
   "scripts": {

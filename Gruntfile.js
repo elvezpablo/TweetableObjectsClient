@@ -20,6 +20,11 @@ module.exports = function(grunt) {
                 pretty : true
             },
             partials : {
+                options : {
+                    data : {
+                        timestamp: "<%= pkg.version %> - <%=   new Date().getTime() %>"
+                    }
+                },
                 files : [{
                     cwd:"jade/",
                     src:["index.jade"],
@@ -54,6 +59,14 @@ module.exports = function(grunt) {
                     user : "prangel",
                     remoteBase : "~/tweetable.rangelworks.com"
                 }
+            },
+            deploy : {
+                files : "www/",
+                options : {
+                    host : "tweetkit.co",
+                    user : "paulrangel",
+                    remoteBase : "/var/www/html"
+                }
             }
         },
         ngtemplates : {
@@ -79,8 +92,8 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks("grunt-rsync-2");
     grunt.loadNpmTasks('grunt-browserify');
     grunt.loadNpmTasks('grunt-angular-templates');
-    grunt.registerTask('default', ['browserify', 'less', 'templates', 'jade']);
 
+    grunt.registerTask('default', ['browserify', 'less', 'templates', 'jade']);
     grunt.registerTask('templates', ['ngtemplates', 'concat']);
 
 };
