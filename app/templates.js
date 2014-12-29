@@ -89,8 +89,9 @@ angular.module('TweetableObjects').run(['$templateCache', function($templateCach
     "\n" +
     "<div class=\"background-holder setting-up\">\n" +
     "  <h1>Setting up your device.</h1>\n" +
-    "  <p>Hold down the Blue Button and wait for the Flashing Light to change to solid Blue.</p>\n" +
+    "  <p>Insert a paper clip into the hole on the base of the device and lightly press until the Flashing Light changes to solid Blue.</p>\n" +
     "  <p>Once the Light is solid Blue your device is ready to connect to wiﬁ.</p>\n" +
+    "  <status></status>\n" +
     "</div><a ng-click=\"next()\" class=\"btn\">BLUE LIGHT IS READY</a>"
   );
 

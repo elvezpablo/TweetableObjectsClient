@@ -1,8 +1,8 @@
-module.exports = ['$scope', '$location', 'CloudbitWifiSetup', 'Paging', function($scope, $location, CloudbitWifiSetup, Paging) {
+module.exports = ['$scope', '$location', 'CloudbitWifiSetup', 'Config', 'Paging', function($scope, $location, CloudbitWifiSetup, Config, Paging) {
 
     Paging.setInfo(4,"STEP FOUR: ENTER A PASSWORD");
 
-    var DEMO = false;
+    var DEMO = Config.DEMO;
 
     if(DEMO) {
         $scope.savePassword = function() {
@@ -13,7 +13,7 @@ module.exports = ['$scope', '$location', 'CloudbitWifiSetup', 'Paging', function
             CloudbitWifiSetup.save($scope.wifiPassword).then(function() {
                 $location.url('/5');
             }, function(msg) {
-                _log("Error :", msg);
+                console.error("Error :", msg);
             });
         }
     }

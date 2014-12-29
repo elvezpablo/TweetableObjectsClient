@@ -93,7 +93,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-browserify');
     grunt.loadNpmTasks('grunt-angular-templates');
 
-    grunt.registerTask('default', ['browserify', 'less', 'templates', 'jade']);
+    grunt.registerTask('default', ['less','jade', 'templates', 'browserify']);
     grunt.registerTask('templates', ['ngtemplates', 'concat']);
 
 };

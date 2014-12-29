@@ -27,6 +27,48 @@ body {
   margin: 0 auto;
 }
 
+
+@circle-size : 30px;
+@circle-purple : #AD2FCC;
+@circle-blue : #1E98FC;
+@circle-yellow : #DCFF4F;
+@circle-green : #48E820;
+
+.circle {
+  border-radius: 50%;
+  width: @circle-size;
+  height: @circle-size;
+}
+.boot {
+  background-color: @circle-purple;
+}
+.ready {
+  background-color: @circle-yellow;
+}
+.settings {
+  background-color: @circle-blue;
+}
+.connected {
+  background-color: @circle-green;
+}
+
+
+
+@keyframes blink {
+  0% { opacity: 1.0; }
+  50% { opacity: 0.0; }
+  100% { opacity: 1.0; }
+}
+@-webkit-keyframes blink {
+  0% { opacity: 1.0; }
+  50% { opacity: 0.0; }
+  100% { opacity: 1.0; }
+}
+.blink {
+  animation: blink 1s step-start 0s infinite;
+  -webkit-animation: blink 1s step-start 0s infinite;
+}
+
 #header {
   background-color: @blue-twitter;
   height: @header-height;

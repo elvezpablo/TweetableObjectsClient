@@ -15,10 +15,18 @@ var routes = require('../node_modules/angular-cookies/angular-cookies-index');
 
 // console.log("angualr %o", angular);
 angular.module('TweetableObjects', ['ngRoute', 'ngCookies'])
+    .value('Config',{
+        DEMO : true,
+        urls : {
+            ping : "https://api-http.littlebitscloud.cc/ping"
+        }
+    })
     .config(['$routeProvider',function($routeProvider){
         $routeProvider.when('/', {
-            templateUrl : 'partials/movie.html',
-            controller : 'MovieController'
+            //templateUrl : 'partials/movie.html',
+            //controller : 'MovieController'
+            templateUrl : 'partials/ready.html',
+            controller : 'ReadyController'
         }).when('/1', {
             templateUrl : 'partials/ready.html',
             controller : 'ReadyController'
@@ -58,5 +66,5 @@ angular.module('TweetableObjects', ['ngRoute', 'ngCookies'])
     .factory('ClientInfo', require('./services/clientinfo'))
     .service('Paging', require('./services/paging'))
     .directive('timeline', require('./directives/timeline'))
-    .directive('vimeo', require('./directives/vimeo'))
+    .directive('status', require('./directives/status'))
     ;

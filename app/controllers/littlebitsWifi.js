@@ -1,9 +1,9 @@
-module.exports = [ '$scope', '$timeout', '$location', '$window', 'UriMonitor','CloudbitWifiSetup', 'Paging', 'ClientInfo', function($scope, $timeout, $location, $window, UriMonitor, CloudbitWifiSetup, Paging, ClientInfo) {
+module.exports = [ '$scope', '$timeout', '$location', '$window', 'UriMonitor','CloudbitWifiSetup', 'Config', 'Paging', 'ClientInfo', function($scope, $timeout, $location, $window, UriMonitor, CloudbitWifiSetup, Config, Paging, ClientInfo) {
     console.log("Little Bits Wifi");
 
     Paging.setInfo(2,"STEP TWO: CONNECT TO LITTLE BITS WIFI");
 
-    var DEMO = false;
+    var DEMO = Config.DEMO;
 
     var _getCSS = function(device, platform) {
         // show mac bu default

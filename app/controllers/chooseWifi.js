@@ -1,11 +1,11 @@
-module.exports = ['$scope', '$location', '$timeout', 'CloudbitWifiSetup', 'Paging', function($scope, $location, $timeout, CloudbitWifiSetup, Paging) {
+module.exports = ['$scope', '$location', '$timeout', 'CloudbitWifiSetup', 'Config', 'Paging', function($scope, $location, $timeout, CloudbitWifiSetup, Config, Paging) {
     console.log("Choose Wifi");
 
     Paging.setInfo(3,"STEP THREE: CONNECT TO YOUR WIFI");
 
     $scope.wifis = null;
 
-    var DEMO = false;
+    var DEMO = Config.DEMO;
 
     if(DEMO) {
         $timeout(function( ) {

@@ -1,4 +1,4 @@
-module.exports = ['$scope', '$location', 'Paging', function($scope, $location, Paging) {
+module.exports = ['$scope', '$location', 'Config', 'Paging', function($scope, $location, Config, Paging) {
 
     console.log("Landing");
     Paging.setInfo(null, "CONGRATULATIONS! YOUR DEVICE IS READY FOR TWEETS.");
