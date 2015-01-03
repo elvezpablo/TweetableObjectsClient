@@ -57,12 +57,16 @@ angular.module('TweetableObjects').run(['$templateCache', function($templateCach
 
   $templateCache.put('partials/landing.html',
     "\n" +
-    "<div class=\"landing-content\">\n" +
-    "  <h1>Your device is ready for Tweets.</h1>\n" +
-    "  <p>Congratulations, your device is conﬁgured and will now send you to the control panel.</p>\n" +
-    "  <p>Once there you can add additional hash tags to animate the device.</p>\n" +
-    "  <p>Thank you for conﬁguring and happy Tweeting!</p>\n" +
-    "  <div ng-click=\"start()\" class=\"btn\">TAP HERE TO CONFIGURE AGAIN</div>\n" +
+    "<div class=\"left white\">\n" +
+    "  <div class=\"center-center\">\n" +
+    "    <div class=\"copy\">\n" +
+    "      <h1>Your device is ready for Tweets.</h1>\n" +
+    "      <p>Congratulations, your device is conﬁgured and will now send you to the control panel. Once there you can add additional hash tags to animate the device. Thank you for conﬁguring and happy Tweeting!</p>\n" +
+    "    </div>\n" +
+    "  </div>\n" +
+    "</div>\n" +
+    "<div class=\"right\">\n" +
+    "  <div style=\"top: 30%\" class=\"center-center device\"></div>\n" +
     "</div>"
   );
 
@@ -85,13 +89,19 @@ angular.module('TweetableObjects').run(['$templateCache', function($templateCach
 
   $templateCache.put('partials/localWifi.html',
     "\n" +
-    "<h1>Reconnecting your computer to wiﬁ.</h1>\n" +
-    "<p>Once your bird is conﬁgured switch your computer back to your local wiﬁ.</p>\n" +
-    "<p>When your local wiﬁ is selected the page will automatically change and the</p>\n" +
-    "<p>light on the device will also change from blue to green.</p>\n" +
-    "<h3 class=\"reconnect\">{{ message }}\n" +
-    "  <div class=\"spinner\"></div>\n" +
-    "</h3>"
+    "<div class=\"left white\">\n" +
+    "  <div class=\"center-center\">\n" +
+    "    <div class=\"copy\">\n" +
+    "      <h1>Reconnecting your computer to wiﬁ.</h1>\n" +
+    "      <p>Once your bird is conﬁgured switch your computer back to your local wiﬁ. When your local wiﬁ is selected the page will automatically change and the light on the device will also change from blue to green.</p>\n" +
+    "    </div>\n" +
+    "  </div>\n" +
+    "</div>\n" +
+    "<div class=\"right\">\n" +
+    "  <div class=\"center-center reconnecting\">\n" +
+    "    <div class=\"spinner\"></div>{{ message }}\n" +
+    "  </div>\n" +
+    "</div>"
   );
 
 
@@ -101,7 +111,7 @@ angular.module('TweetableObjects').run(['$templateCache', function($templateCach
     "  <div ng-click=\"next()\" class=\"center-center start\"><a class=\"button clear-button\">CONFIGURE MY DEVICE</a></div>\n" +
     "</div>\n" +
     "<div class=\"right\">\n" +
-    "  <div style=\"top: 25%\" class=\"center-center device\"></div>\n" +
+    "  <div style=\"top: 30%\" class=\"center-center device\"></div>\n" +
     "</div>"
   );
 

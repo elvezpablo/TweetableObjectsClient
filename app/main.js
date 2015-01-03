@@ -1,7 +1,7 @@
 var littlebits = require('../libs/cloud-client-api-http/');
 var angular = require('../node_modules/angular/angular-index');
 var routes = require('../node_modules/angular-route/angular-route-index');
-var routes = require('../node_modules/angular-cookies/angular-cookies-index');
+var cookies = require('../node_modules/angular-cookies/angular-cookies-index');
 
 angular.module('TweetableObjects', ['ngRoute', 'ngCookies'])
     .value('Config',{

@@ -10,7 +10,7 @@ module.exports = [function() {
             current : "="
         },
         link : function(scope, element, attrs) {
-            var steps = attrs.steps || 5;
+            var steps = attrs.steps || 6;
             var current = 0;
 
             var setUp = function(c) {
