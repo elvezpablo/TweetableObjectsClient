@@ -18,7 +18,7 @@ body
             .centered-container
                 .logo-container
                     a.logo(href="http://tweetkit.co")
-                        span(ng-show="paging.current") TWEETKIT.CO
+                        span(ng-show="paging.current != undefined") TWEETKIT.CO
                 .timeline-container
                     timeline(current="paging.current")
         .page-container(ng-view)

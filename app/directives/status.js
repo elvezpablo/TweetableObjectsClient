@@ -6,9 +6,8 @@
  */
 module.exports = ['$timeout',function($timeout) {
     return {
-        restrict : "E",
+        restrict : "A",
         replace : true,
-        template : "<div class=\"circle\"></div>",
         scope : {
             message : "="
         },

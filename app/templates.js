@@ -30,20 +30,28 @@ angular.module('TweetableObjects').run(['$templateCache', function($templateCach
 
   $templateCache.put('partials/choose.html',
     "\n" +
-    "<h1>Connecting the device to your wiﬁ network.</h1>\n" +
-    "<p>Check the lists of available access points then click on your local network.</p>\n" +
-    "<p>The page will change once selected.\n" +
-    "  <div ng-hide=\"wifis\" class=\"wifi-content\">\n" +
-    "    <h3>Finding your local wifi networks</h3>\n" +
-    "    <div class=\"spinner\"></div>\n" +
+    "<div class=\"left white\">\n" +
+    "  <div class=\"center-center\">\n" +
+    "    <div class=\"copy\">\n" +
+    "      <h1>Connecting the device to your wiﬁ network.</h1>\n" +
+    "      <p>Check the lists of available access points then click on your local network. The page will change once selected.</p>\n" +
+    "    </div>\n" +
     "  </div>\n" +
-    "  <div ng-show=\"wifis\" class=\"wifi-content\">\n" +
-    "    <h3>Select your local wifi to connect to your device</h3>\n" +
-    "    <ul class=\"wifis\">\n" +
-    "      <li ng-repeat=\"wifi in wifis\" ng-if=\"wifi.ssid.length &gt; 0\" ng-click=\"wifiSelected(wifi)\">{{ wifi.ssid }}</li>\n" +
-    "    </ul>\n" +
+    "</div>\n" +
+    "<div class=\"right\">\n" +
+    "  <div class=\"center-center panel\">\n" +
+    "    <div ng-hide=\"wifis\" class=\"wifi-content\">\n" +
+    "      <h3>Finding your local wifi networks</h3>\n" +
+    "      <div class=\"spinner\"></div>\n" +
+    "    </div>\n" +
+    "    <div ng-show=\"wifis\" class=\"wifi-content\">\n" +
+    "      <h3>Select your local wifi to connect to your device</h3>\n" +
+    "      <ul class=\"wifis\">\n" +
+    "        <li ng-repeat=\"wifi in wifis\" ng-if=\"wifi.ssid.length &gt; 0\" ng-click=\"wifiSelected(wifi)\">{{ wifi.ssid }}</li>\n" +
+    "      </ul>\n" +
+    "    </div>\n" +
     "  </div>\n" +
-    "</p>"
+    "</div>"
   );
 
 
@@ -61,11 +69,16 @@ angular.module('TweetableObjects').run(['$templateCache', function($templateCach
 
   $templateCache.put('partials/littlebitsWifi.html',
     "\n" +
-    "<div ng-class=\"wifiImage\" class=\"background-holder\">\n" +
-    "  <h1>Connecting your computer to the device.</h1>\n" +
-    "  <p>Now, change your wiﬁ connection on your computer to the network that starts</p>\n" +
-    "  <p>with littleBits_Cloud followed by 6 characters. The page will automatically</p>\n" +
-    "  <p>change when the browser detects the device availability.</p>\n" +
+    "<div class=\"left white\">\n" +
+    "  <div class=\"center-center\">\n" +
+    "    <div class=\"copy\">\n" +
+    "      <h1>Connecting your computer to the device.</h1>\n" +
+    "      <p>Now, change your wiﬁ connection on your computer to the network that starts with littleBits_Cloud followed by 6 characters. The page will automatically change when the browser detects the device availability.</p>\n" +
+    "    </div>\n" +
+    "  </div>\n" +
+    "</div>\n" +
+    "<div class=\"right\">\n" +
+    "  <div class=\"center-center panel device_bottom\"></div>\n" +
     "</div>"
   );
 
@@ -85,10 +98,10 @@ angular.module('TweetableObjects').run(['$templateCache', function($templateCach
   $templateCache.put('partials/movie.html',
     "\n" +
     "<div class=\"left\">\n" +
-    "  <div ng-click=\"next()\" class=\"center-center start\"></div>\n" +
+    "  <div ng-click=\"next()\" class=\"center-center start\"><a class=\"button clear-button\">CONFIGURE MY DEVICE</a></div>\n" +
     "</div>\n" +
     "<div class=\"right\">\n" +
-    "  <div class=\"center-center device\"></div>\n" +
+    "  <div style=\"top: 25%\" class=\"center-center device\"></div>\n" +
     "</div>"
   );
 
@@ -110,7 +123,7 @@ angular.module('TweetableObjects').run(['$templateCache', function($templateCach
   $templateCache.put('partials/ready.html',
     "\n" +
     "<div class=\"left white\">\n" +
-    "  <div class=\"center-center setting-up\">\n" +
+    "  <div class=\"center-center\">\n" +
     "    <div class=\"copy\">\n" +
     "      <h1>Configure your device</h1>\n" +
     "      <p>Use a paper clip and insert it into the tiny hole on the base of the device. Press in gently and wait for the Flashing Light to change to solid Blue. Once the Light is solid Blue your device is ready to connect to wiﬁ.</p><a ng-click=\"next()\" class=\"button\">CONTINUE</a>\n" +
@@ -118,7 +131,10 @@ angular.module('TweetableObjects').run(['$templateCache', function($templateCach
     "  </div>\n" +
     "</div>\n" +
     "<div class=\"right\">\n" +
-    "  <div class=\"center-center under-device\">coming soon</div>\n" +
+    "  <div class=\"center-center panel panel-device-bottom\">\n" +
+    "    <div status=\"status\" class=\"status\"></div>\n" +
+    "    <div class=\"device-bottom\"></div>\n" +
+    "  </div>\n" +
     "</div>"
   );
 
