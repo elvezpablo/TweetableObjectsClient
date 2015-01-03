@@ -19,9 +19,6 @@ module.exports = ['$scope', '$location', '$timeout', 'CloudbitWifiSetup', 'Confi
                 },
                 {
                     ssid : "A very long name for a wifi"
-                },
-                {
-                    ssid : "My Wifi C"
                 }
             ];
 
@@ -43,7 +40,4 @@ module.exports = ['$scope', '$location', '$timeout', 'CloudbitWifiSetup', 'Confi
             $location.url('/4');
         };
     }
-
-
-
 }];

@@ -111,9 +111,18 @@ body {
   -webkit-box-shadow: 0px 0px 60px 0px rgba(0,0,0,1);
   -moz-box-shadow: 0px 0px 60px 0px rgba(0,0,0,1);
   box-shadow: 0px 0px 60px 0px rgba(0,0,0,1);
-
 }
-
+/*
+  Movie
+*/
+.device {
+  max-width: 330px;
+  min-height: 430px;
+  background: transparent url('../images/device_photo.png') 0 0 no-repeat ;
+}
+/*
+  Ready
+*/
 .panel-device-bottom {
   position: relative;
   width: 326px;
@@ -131,15 +140,67 @@ body {
     background: transparent url('../images/device_bottom.png') 0 0 no-repeat ;
   }
 }
-
-
-.device {
-  max-width: 330px;
-  min-height: 430px;
-  background: transparent url('../images/device_photo.png') 0 0 no-repeat ;
+/*
+ Littlebits Wifi
+*/
+.switch-wifi {
+  width: 360px;
+  height: 420px;
+  background-color: #FFF;
+  border-radius: 4px;
 }
+/*
+  Choose Wifi
+*/
+.choose-wifi {
+  width: 360px;
 
+  background-color: #FFF;
+  border-radius: 4px;
+  padding-bottom: 12px;
+
+  .wifi-content {
+    h3 {
+      font-weight: bold;
+      padding: 20px 18px;
+      margin: 0;
+      font-family: @font-narrow;
+      font-size: 12px;
+      color: #91a4ad;
+      background-color: #f7f7f7;
+
+    }
+    ul.wifis {
+      list-style: none;
+      margin: 0 auto;
+      padding: 0;
+      overflow-y: auto;
+      overflow-x: hidden;
+      height: 380px;
+      width: 360px;
+    }
+    ul.wifis li {
+      border-top: 1px solid #f7f7f7;
+      margin-bottom: 1px;
+      padding: 20px 18px;
+      overflow: hidden;
+      color: #91a4ad;
+      font-size: 18px;
+      font-family: @font-narrow;
+    }
+
+    ul.wifis li:hover {
+      background-color: #55abed;
+      color: white;
+      cursor: pointer;
+    }
+
+  }
+}
 @import "status-circle";
+
+
+
 
 .copy {
   min-width: 300px;
@@ -215,54 +276,26 @@ h3.reconnect {
   margin: 20px 0;
 }
 
-.wifi-computer-win7 {
-  background: transparent url('../images/screenshot-wifi-win7.jpg') bottom center no-repeat;
-  background-size: 348px 515px;
-}
-
-.wifi-computer-win8 {
-  background: transparent url('../images/screenshot-wifi-win8.jpg') bottom center no-repeat;
-  background-size: 401px 429px;
-}
-
-.wifi-computer-mac {
-  background: transparent url('../images/screenshot-wifi-mac.jpg') bottom center no-repeat;
-  background-size: 383px 379px;
-}
 
 
-.wifi-content {
-  text-align: center;
-  h3 {
-    font-weight: bold;
-    margin: 40px auto 10px auto;
-    padding: 0 0 10px 0;
-    border-bottom: 1px solid @blue-faint;
-    font-family: @font-narrow;
-    color: @blue-deep;
-    width: 400px;
-  }
-  ul.wifis {
-    list-style: none;
-    margin: 0 auto;
-    padding: 0;
-    width: 300px;
-  }
+//
+//.wifi-computer-win7 {
+//  background: transparent url('../images/screenshot-wifi-win7.jpg') bottom center no-repeat;
+//  background-size: 348px 515px;
+//}
+//
+//.wifi-computer-win8 {
+//  background: transparent url('../images/screenshot-wifi-win8.jpg') bottom center no-repeat;
+//  background-size: 401px 429px;
+//}
+//
+//.wifi-computer-mac {
+//  background: transparent url('../images/screenshot-wifi-mac.jpg') bottom center no-repeat;
+//  background-size: 383px 379px;
+//}
+//
 
-  ul.wifis li {
-    background-color: @blue-faint;
-    margin-bottom: 1px;
-    padding: 5px;
-    overflow: hidden;
-    color: @blue-text;
-  }
 
-  ul.wifis li:hover {
-    background-color: @blue-mid;
-    cursor: pointer;
-  }
-
-}
 
 .password-content {
   .form-control {

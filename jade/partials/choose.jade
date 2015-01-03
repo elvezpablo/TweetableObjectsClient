@@ -4,11 +4,11 @@
             h1 Connecting the device to your wiﬁ network.
             p Check the lists of available access points then click on your local network. The page will change once selected.
 .right
-    .center-center.panel
+    .center-center.panel(style="top: 25%").choose-wifi
         .wifi-content(ng-hide="wifis")
-            h3 Finding your local wifi networks
+            h3 FINDING NETWORKS
             .spinner
         .wifi-content(ng-show="wifis")
-            h3 Select your local wifi to connect to your device
+            h3 SELECT FROM THIS LIST
             ul.wifis
                 li(ng-repeat="wifi in wifis" ng-if="wifi.ssid.length > 0" ng-click="wifiSelected(wifi)") {{ wifi.ssid }}

@@ -39,13 +39,13 @@ angular.module('TweetableObjects').run(['$templateCache', function($templateCach
     "  </div>\n" +
     "</div>\n" +
     "<div class=\"right\">\n" +
-    "  <div class=\"center-center panel\">\n" +
+    "  <div style=\"top: 25%\" class=\"center-center panel choose-wifi\">\n" +
     "    <div ng-hide=\"wifis\" class=\"wifi-content\">\n" +
-    "      <h3>Finding your local wifi networks</h3>\n" +
+    "      <h3>FINDING NETWORKS</h3>\n" +
     "      <div class=\"spinner\"></div>\n" +
     "    </div>\n" +
     "    <div ng-show=\"wifis\" class=\"wifi-content\">\n" +
-    "      <h3>Select your local wifi to connect to your device</h3>\n" +
+    "      <h3>SELECT FROM THIS LIST</h3>\n" +
     "      <ul class=\"wifis\">\n" +
     "        <li ng-repeat=\"wifi in wifis\" ng-if=\"wifi.ssid.length &gt; 0\" ng-click=\"wifiSelected(wifi)\">{{ wifi.ssid }}</li>\n" +
     "      </ul>\n" +
@@ -78,7 +78,7 @@ angular.module('TweetableObjects').run(['$templateCache', function($templateCach
     "  </div>\n" +
     "</div>\n" +
     "<div class=\"right\">\n" +
-    "  <div class=\"center-center panel device_bottom\"></div>\n" +
+    "  <div style=\"top: 25%\" class=\"center-center panel switch-wifi\"><img src=\"images/wifis.png\"/></div>\n" +
     "</div>"
   );
 
