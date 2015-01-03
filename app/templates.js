@@ -1,6 +1,24 @@
 angular.module('TweetableObjects').run(['$templateCache', function($templateCache) {
   'use strict';
 
+  $templateCache.put('partials/admin.html',
+    "\n" +
+    "<div class=\"admin\">\n" +
+    "  <h3>Tweetkit Admin</h3>\n" +
+    "  <div class=\"add\">\n" +
+    "    <input/>\n" +
+    "  </div>\n" +
+    "  <div class=\"list\">\n" +
+    "    <div ng-repeat=\"device in devices\" class=\"device\">\n" +
+    "      <div class=\"device-id\">{{ device.id }}</div>\n" +
+    "      <div class=\"device-handle\">{{ device.handle }}</div>\n" +
+    "      <div class=\"device-status\">{{ device.is_connected }}</div>\n" +
+    "    </div>\n" +
+    "  </div>\n" +
+    "</div>"
+  );
+
+
   $templateCache.put('partials/bootingUp.html',
     "\n" +
     "<div class=\"instruction-step clearfix\">\n" +
@@ -66,8 +84,12 @@ angular.module('TweetableObjects').run(['$templateCache', function($templateCach
 
   $templateCache.put('partials/movie.html',
     "\n" +
-    "<!--div(videoid=\"112687575\" class=\"vimeo video\")-->\n" +
-    "<div class=\"movie-container\"><a ng-hide=\"skipping.visible\" ng-click=\"skip()\" class=\"btn\">Tap here to skip video</a><a ng-show=\"skipping.visible\" ng-click=\"next()\" class=\"btn\">Tap here to get started</a></div>"
+    "<div class=\"left\">\n" +
+    "  <div ng-click=\"next()\" class=\"center-center start\"></div>\n" +
+    "</div>\n" +
+    "<div class=\"right\">\n" +
+    "  <div class=\"center-center device\"></div>\n" +
+    "</div>"
   );
 
 
@@ -87,12 +109,17 @@ angular.module('TweetableObjects').run(['$templateCache', function($templateCach
 
   $templateCache.put('partials/ready.html',
     "\n" +
-    "<div class=\"background-holder setting-up\">\n" +
-    "  <h1>Setting up your device.</h1>\n" +
-    "  <p>Insert a paper clip into the hole on the base of the device and lightly press until the Flashing Light changes to solid Blue.</p>\n" +
-    "  <p>Once the Light is solid Blue your device is ready to connect to wiﬁ.</p>\n" +
-    "  <status></status>\n" +
-    "</div><a ng-click=\"next()\" class=\"btn\">BLUE LIGHT IS READY</a>"
+    "<div class=\"left white\">\n" +
+    "  <div class=\"center-center setting-up\">\n" +
+    "    <div class=\"copy\">\n" +
+    "      <h1>Configure your device</h1>\n" +
+    "      <p>Use a paper clip and insert it into the tiny hole on the base of the device. Press in gently and wait for the Flashing Light to change to solid Blue. Once the Light is solid Blue your device is ready to connect to wiﬁ.</p><a ng-click=\"next()\" class=\"button\">CONTINUE</a>\n" +
+    "    </div>\n" +
+    "  </div>\n" +
+    "</div>\n" +
+    "<div class=\"right\">\n" +
+    "  <div class=\"center-center under-device\">coming soon</div>\n" +
+    "</div>"
   );
 
 }]);

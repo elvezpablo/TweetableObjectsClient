@@ -5,9 +5,7 @@ module.exports = [function() {
     return {
         restrict : "E",
         replace : true,
-        template : "<div id=\"timeline\">" +
-        "<div class=\"line\"></div>" +
-        "</div>",
+        template : "<div id=\"timeline\"></div>",
         scope : {
             current : "="
         },
@@ -16,29 +14,29 @@ module.exports = [function() {
             var current = 0;
 
             var setUp = function(c) {
-                //console.log("setup");
+                //console.log("setup",c);
                 for(var i=1; i <= steps; i++) {
                     if(c == i) {
-                        element.append("<a class=\"current\">"+(i)+"</a>");
+                        element.append("<a class=\"current\"></a>");
                     } else {
-                        element.append("<a>"+(i)+"</a>");
+                        element.append("<a></a>");
                     }
                 }
             };
 
             var update = function(c) {
-                //console.log("update: %o", c);
+                console.log("update: %o", c);
                 if(c == null) {
                     element.children().removeClass("active");
                     element.children().removeClass("current");
                     return;
                 }
 
-                if(c == 0) {
-                    element.children().removeClass("current");
-                    element.children().addClass("active");
-                    return;
-                }
+                //if(c == 0) {
+                //    element.children().removeClass("current");
+                //    element.children().addClass("active");
+                //    return;
+                //}
                 var dots = element.children('a');
                 angular.forEach(dots, function(dot, index) {
                         if(index == c) {

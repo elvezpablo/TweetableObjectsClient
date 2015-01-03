@@ -2,7 +2,7 @@ module.exports = function(grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
         browserify: {
-            stage: {
+            default: {
                 files: {
                     'www/app.js': ['app/app.js']
                 }

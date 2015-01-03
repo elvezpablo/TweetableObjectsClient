@@ -12,19 +12,13 @@ head
     link(rel="stylesheet" href="css/app.css")
     script(src="app.js")
 body
-    #header
-        .header-content
-            a(href="tweetkit.co") Tweetkit.co
 
     #content(ng-app="TweetableObjects" ng-controller="MainController" )
-        .sub-header
+        .header
             .centered-container
-                h3.step-title {{ paging.description }}
+                .logo-container
+                    a.logo(href="http://tweetkit.co")
+                        span(ng-show="paging.current") TWEETKIT.CO
                 .timeline-container
                     timeline(current="paging.current")
         .page-container(ng-view)
-    #footer
-        .footer-content
-            .centered-container.footer-logo
-                .twitter-inc Twitter Inc.
-                .confidential Confidential Twitter Internal Information.

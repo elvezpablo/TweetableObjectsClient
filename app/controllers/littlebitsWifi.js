@@ -1,7 +1,7 @@
 module.exports = [ '$scope', '$timeout', '$location', '$window', 'UriMonitor','CloudbitWifiSetup', 'Config', 'Paging', 'ClientInfo', function($scope, $timeout, $location, $window, UriMonitor, CloudbitWifiSetup, Config, Paging, ClientInfo) {
     console.log("Little Bits Wifi");
 
-    Paging.setInfo(2,"STEP TWO: CONNECT TO LITTLE BITS WIFI");
+    Paging.setInfo(1,"STEP TWO: CONNECT TO LITTLE BITS WIFI");
 
     var DEMO = Config.DEMO;
 

@@ -3,30 +3,17 @@ var angular = require('../node_modules/angular/angular-index');
 var routes = require('../node_modules/angular-route/angular-route-index');
 var routes = require('../node_modules/angular-cookies/angular-cookies-index');
 
-//require('../node_modules/angular-route/');
-
-//var api = littlebits.defaults({ access_token: 'e24e367cc46478c72575ba94b1abe18fa9234992fb5552a5e94822fe990be6fe' });
-//
-//api.devices(function(d, r) {
-//    console.log("dude 3");
-//    console.log(d);
-//    console.log(r);
-//});
-
-// console.log("angualr %o", angular);
 angular.module('TweetableObjects', ['ngRoute', 'ngCookies'])
     .value('Config',{
-        DEMO : true,
+        DEMO : false,
         urls : {
             ping : "https://api-http.littlebitscloud.cc/ping"
         }
     })
     .config(['$routeProvider',function($routeProvider){
         $routeProvider.when('/', {
-            //templateUrl : 'partials/movie.html',
-            //controller : 'MovieController'
-            templateUrl : 'partials/ready.html',
-            controller : 'ReadyController'
+            templateUrl : 'partials/movie.html',
+            controller : 'MovieController'
         }).when('/1', {
             templateUrl : 'partials/ready.html',
             controller : 'ReadyController'
@@ -45,6 +32,9 @@ angular.module('TweetableObjects', ['ngRoute', 'ngCookies'])
         }).when('/6', {
             templateUrl : 'partials/landing.html',
             controller : 'LandingController'
+        }).when('/admin', {
+            templateUrl : 'partials/admin.html',
+            controller : 'AdminController'
         })
         .otherwise({
             redirectTo: '/'
@@ -61,10 +51,12 @@ angular.module('TweetableObjects', ['ngRoute', 'ngCookies'])
     .controller('EnterPasswordController', require('./controllers/enterPassword'))
     .controller('LocalWifiController', require('./controllers/localWifi'))
     .controller('LandingController', require('./controllers/landing'))
+    .controller('AdminController', require('./controllers/admin'))
     .factory('CloudbitWifiSetup', require('./services/cloudbitWifiSetup'))
     .factory('UriMonitor', require('./services/uriMonitor'))
     .factory('ClientInfo', require('./services/clientinfo'))
     .service('Paging', require('./services/paging'))
+    .service('Devices', require('./services/devices'))
     .directive('timeline', require('./directives/timeline'))
     .directive('status', require('./directives/status'))
     ;

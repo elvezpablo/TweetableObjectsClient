@@ -1,4 +1,4 @@
-module.exports = ['$scope', '$location', '$timeout', 'UriMonitor', 'Config','Paging', function($scope ,$location, $timeout, UriMonitor, Config, Paging) {
+module.exports = ['$scope', '$location', '$timeout', '$window', 'UriMonitor', 'Config','Paging', function($scope ,$location, $timeout, $window, UriMonitor, Config, Paging) {
     console.log("LocalWifi");
     Paging.setInfo(5,"STEP FIVE: RECONNECTING YOUR COMPUTER")
     // using the
