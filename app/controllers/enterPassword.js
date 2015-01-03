@@ -1,6 +1,6 @@
 module.exports = ['$scope', '$location', 'CloudbitWifiSetup', 'Config', 'Paging', function($scope, $location, CloudbitWifiSetup, Config, Paging) {
 
-    Paging.setInfo(4,"STEP FOUR: ENTER A PASSWORD");
+    Paging.setInfo(3,"STEP FOUR: ENTER A PASSWORD");
 
     var DEMO = Config.DEMO;
 

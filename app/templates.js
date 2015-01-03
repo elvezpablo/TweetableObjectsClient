@@ -108,14 +108,22 @@ angular.module('TweetableObjects').run(['$templateCache', function($templateCach
 
   $templateCache.put('partials/password.html',
     "\n" +
-    "<h1>Entering your password.</h1>\n" +
-    "<p>Enter a new personal password for your device.</p>\n" +
-    "<p>The page will change once the password is entered and the save button is tapped.</p>\n" +
-    "<div class=\"password-content\">\n" +
-    "  <div class=\"form-control\">\n" +
-    "    <input ng-model=\"wifiPassword\" placeholder=\"Password\" type=\"text\"/>\n" +
+    "<div class=\"left white\">\n" +
+    "  <div class=\"center-center\">\n" +
+    "    <div class=\"copy\">\n" +
+    "      <h1>Enter a password</h1>\n" +
+    "      <p style=\"margin-bottom: 16px;\">Enter a new personal password for your device.</p>\n" +
+    "      <div class=\"password-content clearfix\">\n" +
+    "        <div class=\"form-control\">\n" +
+    "          <input ng-model=\"wifiPassword\" placeholder=\"Password\" type=\"text\"/>\n" +
+    "        </div>\n" +
+    "        <div class=\"form-control\"><a type=\"button\" ng-click=\"savePassword()\" class=\"button\">SAVE</a></div>\n" +
+    "      </div>\n" +
+    "    </div>\n" +
     "  </div>\n" +
-    "  <div class=\"form-control\"><a type=\"button\" ng-click=\"savePassword()\" class=\"btn\">SAVE PASSWORD</a></div>\n" +
+    "</div>\n" +
+    "<div class=\"right\">\n" +
+    "  <div style=\"top: 45%\" class=\"center-center lock\"></div>\n" +
     "</div>"
   );
 
