@@ -56,6 +56,7 @@ module.exports = ['$http', '$q', function($http, $q) {
             "headers" : {
                 "Content-Type" : "application/x-www-form-urlencoded"
             }}).success(function (data, status, headers, config) {
+            console.log(data);
             if(data.success) {
                 deferred.resolve(data);
             } else {

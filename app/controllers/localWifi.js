@@ -14,16 +14,13 @@ module.exports = ['$scope', '$location', '$timeout', '$window', 'UriMonitor', 'C
     var done = function() {
         checkLittleBits.stop();
         $location.url("/6");
-        console.log("/6");
     };
 
     var setMessage = function() {
-        console.log("set message");
         $scope.message = CONNECTED_MSG;
     };
 
     checkLittleBits.on("change", function(e) {
-        console.log("change");
         if(e === true) {
             setMessage();
             $timeout(done, 3000);
@@ -33,7 +30,6 @@ module.exports = ['$scope', '$location', '$timeout', '$window', 'UriMonitor', 'C
     if(DEMO) {
         $timeout(function() {
             $scope.message = WAITING_MSG;
-            console.log("starting littlebits");
             checkLittleBits.start();
         },3000);
     } else {

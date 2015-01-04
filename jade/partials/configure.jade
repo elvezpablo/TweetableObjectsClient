@@ -1,0 +1,15 @@
+.left.white
+    .center-center
+        .copy
+            h1 Configure
+            p.form-description Edit your handle or connect to new Wi-Fi
+            .password-content.clearfix
+                .form-control
+                    input(placeholder="{{ device.handle }}" ng-model="newHandle" type="text")
+                .form-control
+                    a.button(type="button" ng-click="update(newHandle)") CHANGE
+            p.form-description Connect your device to a new Wi-Fi
+            .new-wifi
+                a.button(ng-click="newWifi()") CONNECT TO NEW WIFI
+.right
+    .center-center.device(style="top: 30%")

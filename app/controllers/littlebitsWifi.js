@@ -38,8 +38,8 @@ module.exports = [ '$scope', '$timeout', '$location', '$window', 'UriMonitor','C
 
          */
         var WAITING_MSG = "Waiting for you to connect";
-        var CONNECTING_MSG = "Connecting...";
-        var CONNECTED_MSG = "Connected!";
+        var CONNECTING_MSG = "CONNECTING...";
+        var CONNECTED_MSG = "CONNECTED";
         var DEBUG = false;
         var url = (DEBUG) ? "http://localhost:8080/" : CloudbitWifiSetup.pingUrl();
 

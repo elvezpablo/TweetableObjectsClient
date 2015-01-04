@@ -1,11 +1,11 @@
 var littlebits = require('../libs/cloud-client-api-http/');
 var angular = require('../node_modules/angular/angular-index');
 var routes = require('../node_modules/angular-route/angular-route-index');
-var routes = require('../node_modules/angular-cookies/angular-cookies-index');
+var cookies = require('../node_modules/angular-cookies/angular-cookies-index');
 
 angular.module('TweetableObjects', ['ngRoute', 'ngCookies'])
     .value('Config',{
-        DEMO : true,
+        DEMO : false,
         urls : {
             ping : "https://api-http.littlebitscloud.cc/ping"
         }
@@ -32,6 +32,9 @@ angular.module('TweetableObjects', ['ngRoute', 'ngCookies'])
         }).when('/6', {
             templateUrl : 'partials/landing.html',
             controller : 'LandingController'
+        }).when('/configure', {
+            templateUrl : 'partials/configure.html',
+            controller : 'ConfigController'
         }).when('/admin', {
             templateUrl : 'partials/admin.html',
             controller : 'AdminController'
@@ -51,6 +54,7 @@ angular.module('TweetableObjects', ['ngRoute', 'ngCookies'])
     .controller('EnterPasswordController', require('./controllers/enterPassword'))
     .controller('LocalWifiController', require('./controllers/localWifi'))
     .controller('LandingController', require('./controllers/landing'))
+    .controller('ConfigController', require('./controllers/configure'))
     .controller('AdminController', require('./controllers/admin'))
     .factory('CloudbitWifiSetup', require('./services/cloudbitWifiSetup'))
     .factory('UriMonitor', require('./services/uriMonitor'))
@@ -95,8 +99,8 @@ angular.module('TweetableObjects').run(['$templateCache', function($templateCach
     "<div class=\"left white\">\n" +
     "  <div class=\"center-center\">\n" +
     "    <div class=\"copy\">\n" +
-    "      <h1>Connecting the device to your wiﬁ network.</h1>\n" +
-    "      <p>Check the lists of available access points then click on your local network. The page will change once selected.</p>\n" +
+    "      <h1>Connect your device to Wi-Fi</h1>\n" +
+    "      <p>Check the list of available access points, then click on your local Wi-Fi network. The page will automatically continue to the next step once you've made a selection.</p>\n" +
     "    </div>\n" +
     "  </div>\n" +
     "</div>\n" +
@@ -117,13 +121,53 @@ angular.module('TweetableObjects').run(['$templateCache', function($templateCach
   );
 
 
+  $templateCache.put('partials/config.html',
+    "\n" +
+    "<div class=\"left white\">\n" +
+    "  <div class=\"center-center\">\n" +
+    "    <div class=\"copy\">\n" +
+    "      <h1>Configure</h1>\n" +
+    "      <p>Edit the handle</p>\n" +
+    "    </div>\n" +
+    "  </div>\n" +
+    "</div>\n" +
+    "<div class=\"right\">\n" +
+    "  <div style=\"top: 30%\" class=\"center-center device\"></div>\n" +
+    "</div>"
+  );
+
+
+  $templateCache.put('partials/configure.html',
+    "\n" +
+    "<div class=\"left white\">\n" +
+    "  <div class=\"center-center\">\n" +
+    "    <div class=\"copy\">\n" +
+    "      <h1>Configure</h1>\n" +
+    "      <p class=\"form-description\">Edit your handle or connect to new Wi-Fi</p>\n" +
+    "      <div class=\"password-content clearfix\">\n" +
+    "        <div class=\"form-control\">\n" +
+    "          <input placeholder=\"{{ device.handle }}\" ng-model=\"newHandle\" type=\"text\"/>\n" +
+    "        </div>\n" +
+    "        <div class=\"form-control\"><a type=\"button\" ng-click=\"update(newHandle)\" class=\"button\">CHANGE</a></div>\n" +
+    "      </div>\n" +
+    "      <p class=\"form-description\">Connect your device to a new Wi-Fi</p>\n" +
+    "      <div class=\"new-wifi\"><a ng-click=\"newWifi()\" class=\"button\">CONNECT TO NEW WIFI</a></div>\n" +
+    "    </div>\n" +
+    "  </div>\n" +
+    "</div>\n" +
+    "<div class=\"right\">\n" +
+    "  <div style=\"top: 30%\" class=\"center-center device\"></div>\n" +
+    "</div>"
+  );
+
+
   $templateCache.put('partials/landing.html',
     "\n" +
     "<div class=\"left white\">\n" +
     "  <div class=\"center-center\">\n" +
     "    <div class=\"copy\">\n" +
-    "      <h1>Your device is ready for Tweets.</h1>\n" +
-    "      <p>Congratulations, your device is conﬁgured and will now send you to the control panel. Once there you can add additional hash tags to animate the device. Thank you for conﬁguring and happy Tweeting!</p>\n" +
+    "      <h1>Tweet, Tweet</h1>\n" +
+    "      <p>Congratulations! The device is configured and ready for Tweets. Every Tweet will evoke an action from the device. Continue to the control panel to add your handle and hashtag.</p><a ng-click=\"configure()\" class=\"button\">CONTINUE</a>\n" +
     "    </div>\n" +
     "  </div>\n" +
     "</div>\n" +
@@ -138,8 +182,8 @@ angular.module('TweetableObjects').run(['$templateCache', function($templateCach
     "<div class=\"left white\">\n" +
     "  <div class=\"center-center\">\n" +
     "    <div class=\"copy\">\n" +
-    "      <h1>Connecting your computer to the device.</h1>\n" +
-    "      <p>Now, change your wiﬁ connection on your computer to the network that starts with littleBits_Cloud followed by 6 characters. The page will automatically change when the browser detects the device availability.</p>\n" +
+    "      <h1>Connect your device to Wi-Fi</h1>\n" +
+    "      <p>Change the Wi-Fi connection on your computer to the network that starts with littleBits_Cloud followed by six characters. The page will automatically continue to the next step once the browser detects the device.</p>\n" +
     "    </div>\n" +
     "  </div>\n" +
     "</div>\n" +
@@ -154,8 +198,8 @@ angular.module('TweetableObjects').run(['$templateCache', function($templateCach
     "<div class=\"left white\">\n" +
     "  <div class=\"center-center\">\n" +
     "    <div class=\"copy\">\n" +
-    "      <h1>Reconnecting your computer to wiﬁ.</h1>\n" +
-    "      <p>Once your bird is conﬁgured switch your computer back to your local wiﬁ. When your local wiﬁ is selected the page will automatically change and the light on the device will also change from blue to green.</p>\n" +
+    "      <h1>Reconnect your computer to Wi-Fi</h1>\n" +
+    "      <p>Once the device is configured, connect your computer to your local Wi-Fi network. The page will automatically continue to the next step once the light on the device changes from blue to green.</p>\n" +
     "    </div>\n" +
     "  </div>\n" +
     "</div>\n" +
@@ -183,7 +227,7 @@ angular.module('TweetableObjects').run(['$templateCache', function($templateCach
     "<div class=\"left white\">\n" +
     "  <div class=\"center-center\">\n" +
     "    <div class=\"copy\">\n" +
-    "      <h1>Enter a password</h1>\n" +
+    "      <h1>Enter your Wi-Fi password</h1>\n" +
     "      <p style=\"margin-bottom: 16px;\">Enter a new personal password for your device.</p>\n" +
     "      <div class=\"password-content clearfix\">\n" +
     "        <div class=\"form-control\">\n" +
@@ -206,7 +250,7 @@ angular.module('TweetableObjects').run(['$templateCache', function($templateCach
     "  <div class=\"center-center\">\n" +
     "    <div class=\"copy\">\n" +
     "      <h1>Configure your device</h1>\n" +
-    "      <p>Use a paper clip and insert it into the tiny hole on the base of the device. Press in gently and wait for the Flashing Light to change to solid Blue. Once the Light is solid Blue your device is ready to connect to wiﬁ.</p><a ng-click=\"next()\" class=\"button\">CONTINUE</a>\n" +
+    "      <p>On the base of the device, insert a paper clip into the little hole next to RESET, press gently and wait for the flashing light to change to solid blue. The solid blue means the device is ready to connect to Wi-Fi.</p><a ng-click=\"next()\" class=\"button\">CONTINUE</a>\n" +
     "    </div>\n" +
     "  </div>\n" +
     "</div>\n" +

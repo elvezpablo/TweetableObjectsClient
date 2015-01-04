@@ -5,7 +5,7 @@ var cookies = require('../node_modules/angular-cookies/angular-cookies-index');
 
 angular.module('TweetableObjects', ['ngRoute', 'ngCookies'])
     .value('Config',{
-        DEMO : true,
+        DEMO : false,
         urls : {
             ping : "https://api-http.littlebitscloud.cc/ping"
         }
@@ -32,6 +32,9 @@ angular.module('TweetableObjects', ['ngRoute', 'ngCookies'])
         }).when('/6', {
             templateUrl : 'partials/landing.html',
             controller : 'LandingController'
+        }).when('/configure', {
+            templateUrl : 'partials/configure.html',
+            controller : 'ConfigController'
         }).when('/admin', {
             templateUrl : 'partials/admin.html',
             controller : 'AdminController'
@@ -51,6 +54,7 @@ angular.module('TweetableObjects', ['ngRoute', 'ngCookies'])
     .controller('EnterPasswordController', require('./controllers/enterPassword'))
     .controller('LocalWifiController', require('./controllers/localWifi'))
     .controller('LandingController', require('./controllers/landing'))
+    .controller('ConfigController', require('./controllers/configure'))
     .controller('AdminController', require('./controllers/admin'))
     .factory('CloudbitWifiSetup', require('./services/cloudbitWifiSetup'))
     .factory('UriMonitor', require('./services/uriMonitor'))
