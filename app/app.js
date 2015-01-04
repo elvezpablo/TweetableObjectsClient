@@ -5,7 +5,7 @@ var cookies = require('../node_modules/angular-cookies/angular-cookies-index');
 
 angular.module('TweetableObjects', ['ngRoute', 'ngCookies'])
     .value('Config',{
-        DEMO : false,
+        DEMO : true,
         urls : {
             ping : "https://api-http.littlebitscloud.cc/ping"
         }
@@ -69,16 +69,23 @@ angular.module('TweetableObjects').run(['$templateCache', function($templateCach
 
   $templateCache.put('partials/admin.html',
     "\n" +
-    "<div class=\"admin\">\n" +
-    "  <h3>Tweetkit Admin</h3>\n" +
-    "  <div class=\"add\">\n" +
-    "    <input/>\n" +
+    "<div class=\"left white\">\n" +
+    "  <div class=\"center-center\">\n" +
+    "    <div class=\"copy\">\n" +
+    "      <h1>Add or edit devices</h1>\n" +
+    "      <p>Something...</p>\n" +
+    "    </div>\n" +
     "  </div>\n" +
-    "  <div class=\"list\">\n" +
-    "    <div ng-repeat=\"device in devices\" class=\"device\">\n" +
-    "      <div class=\"device-id\">{{ device.id }}</div>\n" +
-    "      <div class=\"device-handle\">{{ device.handle }}</div>\n" +
-    "      <div class=\"device-status\">{{ device.is_connected }}</div>\n" +
+    "</div>\n" +
+    "<div class=\"right\">\n" +
+    "  <div style=\"top: 25%\" class=\"center-center panel choose-wifi\">\n" +
+    "    <div class=\"wifi-content\">\n" +
+    "      <h3>Devices</h3>\n" +
+    "      <ul class=\"wifis\">\n" +
+    "        <li ng-repeat=\"device in devices\" ng-click=\"wifiSelected(wifi)\">@{{ device.handle }} ({{ device.id }} )\n" +
+    "          <div ng-class=\"{ 'connected' : device.is_connected}\" class=\"connected-status\"></div>\n" +
+    "        </li>\n" +
+    "      </ul>\n" +
     "    </div>\n" +
     "  </div>\n" +
     "</div>"

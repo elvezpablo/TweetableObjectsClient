@@ -1,9 +1,14 @@
-.admin
-   h3 Tweetkit Admin
-   .add
-      input()
-   .list
-      .device(ng-repeat="device in devices")
-         .device-id {{ device.id }}
-         .device-handle {{ device.handle }}
-         .device-status {{ device.is_connected }}
+.left.white
+   .center-center
+      .copy
+         h1 Add or edit devices
+         p Something...
+.right
+      .center-center.panel(style="top: 25%").choose-wifi
+         .wifi-content
+            h3 Devices
+            ul.wifis
+               li(ng-repeat="device in devices"  ng-click="wifiSelected(wifi)")
+                  | @{{ device.handle }} ({{ device.id }} )
+                  .connected-status(ng-class="{ 'connected' : device.is_connected}")
+

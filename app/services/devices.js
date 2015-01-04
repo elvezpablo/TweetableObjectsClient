@@ -14,7 +14,7 @@ module.exports = ['$http', '$q', function($http, $q) {
             "url" : url,
             "method" : "GET"
             }).success(function (data, status, headers, config) {
-            if(data.success) {
+            if(data) {
                 deferred.resolve(data);
             } else {
                 deferred.reject(data.error);
