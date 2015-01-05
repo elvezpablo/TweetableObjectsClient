@@ -1,9 +1,12 @@
 /**
  * Created by paul.rangel on 1/4/15.
  */
-module.exports = ['$scope', '$location', '$cookies', 'Devices', function($scope, $location, $cookies, Devices) {
+module.exports = ['$scope', '$location', '$cookies', 'Devices', 'Config', function($scope, $location, $cookies, Devices, Config) {
     console.log("Configure");
-    //$cookies.littlebits_device_id = '00e04c1cc4c5';
+    if(Config.DEMO) {
+        $cookies.littlebits_device_id = '00e04c1cc4c5';
+    }
+
 
     Devices.device($cookies.littlebits_device_id).then(function(device) {
         $scope.device = device;
