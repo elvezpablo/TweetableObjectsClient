@@ -17,7 +17,7 @@ module.exports = ['$http', '$q', function($http, $q) {
             if(data) {
                 deferred.resolve(data);
             } else {
-                deferred.reject(data.error);
+                deferred.reject(data);
             }
 
         }).error(function (data, status, headers, config) {
@@ -41,7 +41,7 @@ module.exports = ['$http', '$q', function($http, $q) {
             if(data.success) {
                 deferred.resolve(data);
             } else {
-                deferred.reject(data.error);
+                deferred.reject(data);
             }
 
         }).error(function (data, status, headers, config) {
@@ -63,7 +63,7 @@ module.exports = ['$http', '$q', function($http, $q) {
             if(data) {
                 deferred.resolve(data);
             } else {
-                deferred.reject(data.error);
+                deferred.reject(data);
             }
 
         }).error(function (data, status, headers, config) {
@@ -86,7 +86,7 @@ module.exports = ['$http', '$q', function($http, $q) {
             if(data.success) {
                 deferred.resolve(data);
             } else {
-                deferred.reject(data.error);
+                deferred.reject(data);
             }
 
         }).error(function (data, status, headers, config) {
