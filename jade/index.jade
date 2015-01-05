@@ -18,12 +18,12 @@ body
             .centered-container
                 .logo-container
                     a.logo(href="http://tweetkit.co")
-                        span(ng-show="paging.current != undefined") TWEETKIT
+                        span @TWEETKIT
                 .timeline-container
                     timeline(current="paging.current")
         .page-container(ng-view)
         .footer
-            | 2015 Twitter Inc. all rights reserved &middot;
+            | Twitter Inc. 2015 &middot;
             = " "
             a(href="mailto:tweetkit@twitter.com") tweetkit@twitter.com
 
