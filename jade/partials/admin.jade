@@ -7,8 +7,11 @@
       .center-center.panel(style="top: 25%").choose-wifi
          .wifi-content
             h3 Devices
-            ul.wifis
+            ul.devices
                li(ng-repeat="device in devices"  ng-click="wifiSelected(wifi)")
-                  | @{{ device.handle }} ({{ device.id }} )
-                  .connected-status(ng-class="{ 'connected' : device.is_connected}")
+                  span(ng-show="device.handle")
+                     a @{{ device.handle }} ({{ device.id }} )
+                  span(ng-show="!device.handle")
+                     | No handle
+                  .connected-status(ng-class="{ 'connected' : device.is_connected}" ng-click="trigger(device)")
 

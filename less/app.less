@@ -222,8 +222,33 @@ body {
 }
 
 
+ul.devices {
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: 380px;
+  width: 360px;
+  li {
+    border-top: 1px solid #f7f7f7;
+    margin-bottom: 1px;
+    padding: 20px 16px 20px 22px;
+    overflow: hidden;
+    color: #91a4ad;
+    font-size: 18px;
+    font-family: @font-narrow;
+    font-weight: lighter;
+    a {
+      cursor: pointer;
+    }
 
-
+  }
+  li:hover {
+    background: #55abed url("../images/checkmark.png") 95% 50% no-repeat;
+    color: white;
+  }
+}
 
 .copy {
   min-width: 300px;

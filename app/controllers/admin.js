@@ -6,4 +6,9 @@ module.exports = ['$scope', 'Devices', function($scope, Devices) {
         $scope.devices = devices;
     });
 
+    $scope.trigger = function(device) {
+        if(device.is_connected)
+            Devices.trigger(device.id);
+    }
+
 }];

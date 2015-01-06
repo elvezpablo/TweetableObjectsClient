@@ -32,9 +32,6 @@ angular.module('TweetableObjects', ['ngRoute', 'ngCookies'])
         }).when('/6', {
             templateUrl : 'partials/landing.html',
             controller : 'LandingController'
-        }).when('/configure', {
-            templateUrl : 'partials/configure.html',
-            controller : 'ConfigController'
         }).when('/admin', {
             templateUrl : 'partials/admin.html',
             controller : 'AdminController'

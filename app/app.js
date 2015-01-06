@@ -32,9 +32,6 @@ angular.module('TweetableObjects', ['ngRoute', 'ngCookies'])
         }).when('/6', {
             templateUrl : 'partials/landing.html',
             controller : 'LandingController'
-        }).when('/configure', {
-            templateUrl : 'partials/configure.html',
-            controller : 'ConfigController'
         }).when('/admin', {
             templateUrl : 'partials/admin.html',
             controller : 'AdminController'
@@ -81,9 +78,9 @@ angular.module('TweetableObjects').run(['$templateCache', function($templateCach
     "  <div style=\"top: 25%\" class=\"center-center panel choose-wifi\">\n" +
     "    <div class=\"wifi-content\">\n" +
     "      <h3>Devices</h3>\n" +
-    "      <ul class=\"wifis\">\n" +
-    "        <li ng-repeat=\"device in devices\" ng-click=\"wifiSelected(wifi)\">@{{ device.handle }} ({{ device.id }} )\n" +
-    "          <div ng-class=\"{ 'connected' : device.is_connected}\" class=\"connected-status\"></div>\n" +
+    "      <ul class=\"devices\">\n" +
+    "        <li ng-repeat=\"device in devices\" ng-click=\"wifiSelected(wifi)\"><span ng-show=\"device.handle\"><a>@{{ device.handle }} ({{ device.id }} )</a></span><span ng-show=\"!device.handle\">No handle</span>\n" +
+    "          <div ng-class=\"{ 'connected' : device.is_connected}\" ng-click=\"trigger(device)\" class=\"connected-status\"></div>\n" +
     "        </li>\n" +
     "      </ul>\n" +
     "    </div>\n" +
@@ -161,7 +158,6 @@ angular.module('TweetableObjects').run(['$templateCache', function($templateCach
     "  <div style=\"top: 26%\" class=\"center-center\">\n" +
     "    <div class=\"copy\">\n" +
     "      <h1>Customize @handle</h1>\n" +
-    "      <!--p Connect the device to a new Wi-Fi-->\n" +
     "      <p class=\"form-description\"> Congratulations! The device is configured. Now, assign a custom @handle to get it ready for Tweets.</p>\n" +
     "      <div class=\"password-content clearfix\">\n" +
     "        <div class=\"form-control\">\n" +
@@ -174,10 +170,6 @@ angular.module('TweetableObjects').run(['$templateCache', function($templateCach
     "      <p style=\"margin-top: 0px\" class=\"form-description\">The device must be reconfigured if you switch Wi-Fi networks. Follow these simple steps to reconnect.</p>\n" +
     "      <div style=\"margin: 20px 0 30px 0;\" class=\"new-wifi\"><a ng-click=\"newWifi()\" class=\"button\">CONFIGURE MY DEVICE</a></div>\n" +
     "    </div>\n" +
-    "    <!--.copy-->\n" +
-    "    <!--    h1 Tweet, Tweet-->\n" +
-    "    <!--    p Congratulations! The device is configured and ready for Tweets. Continue to the control panel to add your handle.-->\n" +
-    "    <!--    a.button(ng-click=\"configure()\") CONTINUE-->\n" +
     "  </div>\n" +
     "</div>\n" +
     "<div class=\"right\">\n" +

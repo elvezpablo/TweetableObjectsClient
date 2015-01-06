@@ -5,7 +5,8 @@ module.exports = ['$scope', '$location', '$cookies', '$timeout', 'Config', 'Pagi
     $scope.needs_handle = false;
 
     var _getHandle = function()  {
-        if($cookies.littlebits_device_id) {
+        console.log("$cookies.littlebits_device_id", $cookies.littlebits_device_id);
+        if($cookies.littlebits_device_id && $cookies.littlebits_device_id.length > 0) {
             Devices.device($cookies.littlebits_device_id).then(function(device) {
                if(device.handle) {
                    $scope.handle = device.handle;
@@ -16,13 +17,26 @@ module.exports = ['$scope', '$location', '$cookies', '$timeout', 'Config', 'Pagi
                     Devices.trigger($cookies.littlebits_device_id);
                 }, 5000);
             });
+        } else {
+            $location.path("/1");
         }
     };
 
     _getHandle();
 
-    $scope.configure = function() {
-        $location.path("/configure");
+
+    Devices.device($cookies.littlebits_device_id).then(function(device) {
+        $scope.device = device;
+    });
+
+    $scope.update = function(handle) {
+        Devices.update($cookies.littlebits_device_id, handle).then(function(data) {});
     };
+
+    $scope.newWifi = function() {
+        $location.path("/1");
+        $cookies.littlebits_device_id = "";
+    };
+
 
 }];
