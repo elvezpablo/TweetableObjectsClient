@@ -81,20 +81,7 @@ angular.module('TweetableObjects').run(['$templateCache', function($templateCach
   $templateCache.put('partials/configure.html',
     "\n" +
     "<div class=\"left white\">\n" +
-    "  <div class=\"center-center\">\n" +
-    "    <div class=\"copy\">\n" +
-    "      <h1>Configure</h1>\n" +
-    "      <p class=\"form-description\">Edit your handle or connect to new Wi-Fi</p>\n" +
-    "      <div class=\"password-content clearfix\">\n" +
-    "        <div class=\"form-control\">\n" +
-    "          <input placeholder=\"{{ device.handle }}\" ng-model=\"newHandle\" type=\"text\"/>\n" +
-    "        </div>\n" +
-    "        <div class=\"form-control\"><a type=\"button\" ng-click=\"update(newHandle)\" class=\"button\">CHANGE</a></div>\n" +
-    "      </div>\n" +
-    "      <p class=\"form-description\">Connect your device to a new Wi-Fi</p>\n" +
-    "      <div class=\"new-wifi\"><a ng-click=\"newWifi()\" class=\"button\">CONNECT TO NEW WIFI</a></div>\n" +
-    "    </div>\n" +
-    "  </div>\n" +
+    "  <div style=\"top: 30%\" class=\"center-center\"></div>\n" +
     "</div>\n" +
     "<div class=\"right\">\n" +
     "  <div style=\"top: 30%\" class=\"center-center device\"></div>\n" +
@@ -105,11 +92,26 @@ angular.module('TweetableObjects').run(['$templateCache', function($templateCach
   $templateCache.put('partials/landing.html',
     "\n" +
     "<div class=\"left white\">\n" +
-    "  <div class=\"center-center\">\n" +
+    "  <div style=\"top: 26%\" class=\"center-center\">\n" +
     "    <div class=\"copy\">\n" +
-    "      <h1>Tweet, Tweet</h1>\n" +
-    "      <p>Congratulations! The device is configured and ready for Tweets. Every Tweet will evoke an action from the device. Continue to the control panel to add your handle and hashtag.</p><a ng-click=\"configure()\" class=\"button\">CONTINUE</a>\n" +
+    "      <h1>Customize @handle</h1>\n" +
+    "      <!--p Connect the device to a new Wi-Fi-->\n" +
+    "      <p class=\"form-description\"> Congratulations! The device is configured. Now, assign a custom @handle to get it ready for Tweets.</p>\n" +
+    "      <div class=\"password-content clearfix\">\n" +
+    "        <div class=\"form-control\">\n" +
+    "          <div class=\"prefix\">@</div>\n" +
+    "          <input placeholder=\"{{ device.handle }}\" ng-model=\"newHandle\" type=\"text\" class=\"handle\"/>\n" +
+    "        </div>\n" +
+    "        <div class=\"form-control\"><a type=\"button\" ng-click=\"update(newHandle)\" class=\"button\">SAVE</a></div>\n" +
+    "      </div>\n" +
+    "      <h1 style=\"font-size: 24px; margin: 30px 0 0 0; line-height: 35px;\">Connect to new Wi-Fi</h1>\n" +
+    "      <p style=\"margin-top: 0px\" class=\"form-description\">The device must be reconfigured if you switch Wi-Fi networks. Follow these simple steps to reconnect.</p>\n" +
+    "      <div style=\"margin: 20px 0 30px 0;\" class=\"new-wifi\"><a ng-click=\"newWifi()\" class=\"button\">CONFIGURE MY DEVICE</a></div>\n" +
     "    </div>\n" +
+    "    <!--.copy-->\n" +
+    "    <!--    h1 Tweet, Tweet-->\n" +
+    "    <!--    p Congratulations! The device is configured and ready for Tweets. Continue to the control panel to add your handle.-->\n" +
+    "    <!--    a.button(ng-click=\"configure()\") CONTINUE-->\n" +
     "  </div>\n" +
     "</div>\n" +
     "<div class=\"right\">\n" +
@@ -124,7 +126,7 @@ angular.module('TweetableObjects').run(['$templateCache', function($templateCach
     "  <div class=\"center-center\">\n" +
     "    <div class=\"copy\">\n" +
     "      <h1>Connect your device to Wi-Fi</h1>\n" +
-    "      <p>Change the Wi-Fi connection on your computer to the network that starts with littleBits_Cloud followed by six characters. The page will automatically continue to the next step once the browser detects the device.</p>\n" +
+    "      <p>Change the Wi-Fi connection on your computer to the network that starts with littleBits_Cloud_ followed by six characters. The page will automatically continue to the next step once the browser detects the device.</p>\n" +
     "    </div>\n" +
     "  </div>\n" +
     "</div>\n" +
@@ -140,7 +142,7 @@ angular.module('TweetableObjects').run(['$templateCache', function($templateCach
     "  <div class=\"center-center\">\n" +
     "    <div class=\"copy\">\n" +
     "      <h1>Reconnect your computer to Wi-Fi</h1>\n" +
-    "      <p>Once the device is configured, connect your computer to your local Wi-Fi network. The page will automatically continue to the next step once the light on the device changes from blue to green.</p>\n" +
+    "      <p>Once the device is configured, connect your computer to your local Wi-Fi network. The page will automatically continue to the next step once the STATUS light on the device changes from blue to green.</p>\n" +
     "    </div>\n" +
     "  </div>\n" +
     "</div>\n" +
@@ -155,7 +157,10 @@ angular.module('TweetableObjects').run(['$templateCache', function($templateCach
   $templateCache.put('partials/movie.html',
     "\n" +
     "<div class=\"left\">\n" +
-    "  <div ng-click=\"next()\" class=\"center-center start\"><a class=\"button clear-button\">CONFIGURE MY DEVICE</a></div>\n" +
+    "  <div ng-click=\"next()\" class=\"center-center start\"><a class=\"button clear-button\">CONFIGURE MY DEVICE</a>\n" +
+    "    <div class=\"disclaimer\"><strong>Note:</strong> The device operates on a local Wi-Fi network (e.g. your home or office). At this time, it will not connect to a hotel Wi-Fi network that requires a special login.\n" +
+    "    </div>\n" +
+    "  </div>\n" +
     "</div>\n" +
     "<div class=\"right\">\n" +
     "  <div style=\"top: 30%\" class=\"center-center device\"></div>\n" +
@@ -169,7 +174,7 @@ angular.module('TweetableObjects').run(['$templateCache', function($templateCach
     "  <div class=\"center-center\">\n" +
     "    <div class=\"copy\">\n" +
     "      <h1>Enter your Wi-Fi password</h1>\n" +
-    "      <p style=\"margin-bottom: 16px;\">Enter a new personal password for your device.</p>\n" +
+    "      <!--p(style=\"margin-bottom: 16px;\") Enter password for your device.-->\n" +
     "      <div class=\"password-content clearfix\">\n" +
     "        <div class=\"form-control\">\n" +
     "          <input ng-model=\"wifiPassword\" placeholder=\"Password\" type=\"text\"/>\n" +
@@ -191,7 +196,7 @@ angular.module('TweetableObjects').run(['$templateCache', function($templateCach
     "  <div class=\"center-center\">\n" +
     "    <div class=\"copy\">\n" +
     "      <h1>Configure your device</h1>\n" +
-    "      <p>On the base of the device, insert a paper clip into the little hole next to RESET, press gently and wait for the flashing light to change to solid blue. The solid blue means the device is ready to connect to Wi-Fi.</p><a ng-click=\"next()\" class=\"button\">CONTINUE</a>\n" +
+    "      <p>On the base of the device, switch it to the ON position. Then, insert a paper clip into the little hole next to RESET, press gently and wait until the flashing STATUS light changes to solid blue. The solid blue means the device is ready to connect to Wi-Fi.</p><a ng-click=\"next()\" class=\"button\">CONTINUE</a>\n" +
     "    </div>\n" +
     "  </div>\n" +
     "</div>\n" +

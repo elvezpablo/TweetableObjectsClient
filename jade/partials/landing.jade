@@ -1,8 +1,24 @@
 .left.white
-    .center-center
+    .center-center(style="top: 26%")
         .copy
-            h1 Tweet, Tweet
-            p Congratulations! The device is configured and ready for Tweets. Every Tweet will evoke an action from the device. Continue to the control panel to add your handle and hashtag.
-            a.button(ng-click="configure()") CONTINUE
+            h1 Customize @handle
+            //p Connect the device to a new Wi-Fi
+            p.form-description  Congratulations! The device is configured. Now, assign a custom @handle to get it ready for Tweets.
+            .password-content.clearfix
+                .form-control
+                    .prefix @
+                    input.handle(placeholder="{{ device.handle }}" ng-model="newHandle" type="text")
+                .form-control
+                    a.button(type="button" ng-click="update(newHandle)") SAVE
+            h1(style="font-size: 24px; margin: 30px 0 0 0; line-height: 35px;") Connect to new Wi-Fi
+            p.form-description(style="margin-top: 0px")
+                | The device must be reconfigured if you switch Wi-Fi networks. Follow these simple steps to reconnect.
+            .new-wifi(style="margin: 20px 0 30px 0;")
+                a.button(ng-click="newWifi()") CONFIGURE MY DEVICE
+
+        //.copy
+        //    h1 Tweet, Tweet
+        //    p Congratulations! The device is configured and ready for Tweets. Continue to the control panel to add your handle.
+        //    a.button(ng-click="configure()") CONTINUE
 .right
     .center-center.device(style="top: 30%")

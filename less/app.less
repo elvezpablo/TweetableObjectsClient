@@ -83,7 +83,7 @@ body {
     text-decoration: none;
   }
   a:hover {
-    text-decoration: underline;
+    color: rgba(255,255,255, 1);
   }
 }
 
@@ -259,19 +259,28 @@ a.button:hover {
 
 
 .start {
-  max-width: 500px;
-  min-height: 132px;
+  max-width: 478px;
+  //height: 132px;
+  position: relative;
   background: transparent url('../images/start.png') 0 0 no-repeat ;
   cursor: pointer;
   a.clear-button {
     color: #FFF;
     padding: 14px 95px 14px 16px;
-    position: absolute;
-    bottom: 0;
+    display: inline-block;
+    margin: 100px 0 0 0;
+    font-family: @font-narrow;
     background: transparent url('../images/arrow_little.png') 95% 50% no-repeat ;
   }
   a.clear-button:hover {
     background-color: #55abed;
+  }
+  .disclaimer {
+    color: #fff;
+    margin-top: 20px;
+    font-family: @font-narrow;
+    line-height: 26px;
+    font-size: 14px;
   }
 }
 
@@ -330,46 +339,61 @@ h3.reconnect {
   border: solid 1px #dadada;
   border-radius: 4px;
   padding: 10px;
+}
 
-  .form-control {
-    display: block;
-    input {
-      float: left;
-      border: none;
-      outline: none;
-      font-size: 18px;
-      line-height: 38px;
-      padding: 0 0 0 10px;
-      width: 180px;
-      color:  #333;
-    }
-    ::-webkit-input-placeholder { /* WebKit browsers */
-      color:    #cfd8dc;
-    }
-    :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-      color:    #cfd8dc;
-      opacity:  1;
-    }
-    ::-moz-placeholder { /* Mozilla Firefox 19+ */
-      color:    #cfd8dc;
-      opacity:  1;
-    }
-    :-ms-input-placeholder { /* Internet Explorer 10+ */
-      color:    #cfd8dc;
-    }
-    a {
-      float: right;
-      width: auto;
-      padding: 12px 20px;
-    }
-  }
 
-  input[type="text"]:focus,
-  input[type="text"].focus {
+.form-control {
+  display: block;
+  position: relative;
+  input {
+    float: left;
     border: none;
+    outline: none;
+    font-size: 18px;
+    line-height: 38px;
+    padding: 0 0 0 8px;
+    width: 180px;
+    color:  #333;
+    font-family: @font-narrow;
   }
+  input.handle {
+    padding: 0 0 0 24px;
+  }
+  ::-webkit-input-placeholder { /* WebKit browsers */
+    color:    #cfd8dc;
+  }
+  :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color:    #cfd8dc;
+    opacity:  1;
+  }
+  ::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color:    #cfd8dc;
+    opacity:  1;
+  }
+  :-ms-input-placeholder { /* Internet Explorer 10+ */
+    color:    #cfd8dc;
+  }
+  a {
+    float: right;
+    width: auto;
+    padding: 12px 20px;
+  }
+  .prefix {
+    color:    #cfd8dc;
+    font-size: 18px;
+    line-height: 38px;
+    font-family: @font-narrow;
+    position: absolute;
+    left: 4px;
+    top: 2px;
+  }
+}
 
 
+
+input[type="text"]:focus,
+input[type="text"].focus {
+  border: none;
 }
 
 .lock {
