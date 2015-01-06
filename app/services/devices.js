@@ -4,8 +4,8 @@
 module.exports = ['$http', '$q', function($http, $q) {
 
     var _VERSION = "1.0.0";
-    //var _URL = "http://tweetkit.co:8080/tweetkit";
-    var _URL = "http://localhost:8080/tweetkit";
+    var _URL = "http://tweetkit.co:8080/tweetkit";
+    //var _URL = "http://localhost:8080/tweetkit";
 
     var _getDevices = function() {
         var deferred = $q.defer();

@@ -5,7 +5,7 @@ var cookies = require('../node_modules/angular-cookies/angular-cookies-index');
 
 angular.module('TweetableObjects', ['ngRoute', 'ngCookies'])
     .value('Config',{
-        DEMO : true,
+        DEMO : false,
         urls : {
             ping : "https://api-http.littlebitscloud.cc/ping"
         }
