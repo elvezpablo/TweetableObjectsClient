@@ -54,12 +54,12 @@ module.exports = [ '$scope', '$timeout', '$location', '$window', 'UriMonitor','C
             }
         });
         // gives additinal feedback on wifi change status
-        var handleOffline = function() {
-            $scope.$apply(function() {
-                $scope.status =  { message : CONNECTING_MSG };
-            })
-        };
-        $window.addEventListener("offline",handleOffline);
+        //var handleOffline = function() {
+        //    $scope.$apply(function() {
+        //        $scope.status =  { message : CONNECTING_MSG };
+        //    })
+        //};
+        //$window.addEventListener("offline",handleOffline);
         // start checking
         checkLittleBits.start();
         $scope.status =  { message : WAITING_MSG };

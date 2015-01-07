@@ -5,7 +5,6 @@ module.exports = ['$scope', '$location', '$cookies', '$timeout', 'Config', 'Pagi
     $scope.needs_handle = false;
 
     var _getHandle = function()  {
-        console.log("$cookies.littlebits_device_id", $cookies.littlebits_device_id);
         if($cookies.littlebits_device_id && $cookies.littlebits_device_id.length > 0) {
             Devices.device($cookies.littlebits_device_id).then(function(device) {
                if(device.handle) {
@@ -30,7 +29,16 @@ module.exports = ['$scope', '$location', '$cookies', '$timeout', 'Config', 'Pagi
     });
 
     $scope.update = function(handle) {
-        Devices.update($cookies.littlebits_device_id, handle).then(function(data) {});
+
+        if(handle && handle.length > 2) {
+            $scope.network ={busy:true};
+            Devices.update($cookies.littlebits_device_id, handle).then(function(data) {
+                $timeout(function() {
+                    $scope.network ={busy:false};
+                    Devices.trigger($cookies.littlebits_device_id);
+                }, 1000);
+            });
+        }
     };
 
     $scope.newWifi = function() {

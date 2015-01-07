@@ -4,10 +4,30 @@ angular.module('TweetableObjects').run(['$templateCache', function($templateCach
   $templateCache.put('partials/admin.html',
     "\n" +
     "<div class=\"left white\">\n" +
-    "  <div class=\"center-center\">\n" +
+    "  <div style=\"top: 25%\" class=\"center-center\">\n" +
     "    <div class=\"copy\">\n" +
-    "      <h1>Add or edit devices</h1>\n" +
-    "      <p>Something...</p>\n" +
+    "      <h1 style=\"margin-bottom: 0\">Add Device</h1>\n" +
+    "      <div style=\"margin-bottom: 20px\" class=\"password-content clearfix\">\n" +
+    "        <div class=\"form-control\">\n" +
+    "          <input placeholder=\"id\" ng-model=\"newId\" type=\"text\" class=\"handle\"/>\n" +
+    "        </div>\n" +
+    "      </div>\n" +
+    "      <div style=\"margin-bottom: 20px\" class=\"password-content clearfix\">\n" +
+    "        <div class=\"form-control\">\n" +
+    "          <div class=\"prefix\">@</div>\n" +
+    "          <input placeholder=\"handle\" ng-model=\"handle\" type=\"text\" class=\"handle\"/>\n" +
+    "        </div>\n" +
+    "      </div><a ng-click=\"add(newId, handle)\" style=\"padding: 14px 16px 14px 16px;\" class=\"button\">ADD</a>\n" +
+    "      <div style=\"margin: 40px 0 10px 0; border-bottom: 1px solid #e9e9e9;\"></div>\n" +
+    "      <h1 style=\"margin: 20px 0 0 0\">Edit Handle</h1>\n" +
+    "      <p ng-if=\"device.id\" style=\"font-size: 18px; margin: 0 0 10px 2px\">For device ({{ device.id }})</p>\n" +
+    "      <div class=\"password-content clearfix\">\n" +
+    "        <div class=\"form-control\">\n" +
+    "          <div class=\"prefix\">@</div>\n" +
+    "          <input placeholder=\"{{ device.handle }}\" ng-model=\"newHandle\" type=\"text\" class=\"handle\"/>\n" +
+    "        </div>\n" +
+    "        <div class=\"form-control\"><a type=\"button\" ng-click=\"edit(newHandle)\" class=\"button\">SAVE</a></div>\n" +
+    "      </div>\n" +
     "    </div>\n" +
     "  </div>\n" +
     "</div>\n" +
@@ -16,7 +36,7 @@ angular.module('TweetableObjects').run(['$templateCache', function($templateCach
     "    <div class=\"wifi-content\">\n" +
     "      <h3>Devices</h3>\n" +
     "      <ul class=\"devices\">\n" +
-    "        <li ng-repeat=\"device in devices\" ng-click=\"wifiSelected(wifi)\"><span ng-show=\"device.handle\"><a>@{{ device.handle }} ({{ device.id }} )</a></span><span ng-show=\"!device.handle\">No handle</span>\n" +
+    "        <li ng-repeat=\"device in devices\" ng-click=\"wifiSelected(wifi)\"><span ng-show=\"device.handle\"><a ng-click=\"select(device)\">@{{ device.handle }} ({{ device.id }} )</a></span><span ng-show=\"!device.handle\">No handle</span>\n" +
     "          <div ng-class=\"{ 'connected' : device.is_connected}\" ng-click=\"trigger(device)\" class=\"connected-status\"></div>\n" +
     "        </li>\n" +
     "      </ul>\n" +
@@ -99,9 +119,9 @@ angular.module('TweetableObjects').run(['$templateCache', function($templateCach
     "      <div class=\"password-content clearfix\">\n" +
     "        <div class=\"form-control\">\n" +
     "          <div class=\"prefix\">@</div>\n" +
-    "          <input placeholder=\"{{ device.handle }}\" ng-model=\"newHandle\" type=\"text\" class=\"handle\"/>\n" +
+    "          <input placeholder=\"{{ device.handle }}\" value=\"{{ device.handle }}\" ng-model=\"newHandle\" type=\"text\" class=\"handle\"/>\n" +
     "        </div>\n" +
-    "        <div class=\"form-control\"><a type=\"button\" ng-click=\"update(newHandle)\" class=\"button\">SAVE</a></div>\n" +
+    "        <div class=\"form-control\"><a type=\"button\" ng-click=\"update(newHandle)\" class=\"button\">SAVE</a><a ng-show=\"network.busy\" class=\"busy\"></a></div>\n" +
     "      </div>\n" +
     "      <h1 style=\"font-size: 24px; margin: 30px 0 0 0; line-height: 35px;\">Connect to new Wi-Fi</h1>\n" +
     "      <p style=\"margin-top: 0px\" class=\"form-description\">The device must be reconfigured if you switch Wi-Fi networks. Follow these simple steps to reconnect.</p>\n" +
@@ -152,10 +172,7 @@ angular.module('TweetableObjects').run(['$templateCache', function($templateCach
   $templateCache.put('partials/movie.html',
     "\n" +
     "<div class=\"left\">\n" +
-    "  <div ng-click=\"next()\" class=\"center-center start\"><a class=\"button clear-button\">CONFIGURE MY DEVICE</a>\n" +
-    "    <div class=\"disclaimer\"><strong>Note:</strong> The device operates on a local Wi-Fi network (e.g. your home or office). At this time, it will not connect to a hotel Wi-Fi network that requires a special login.\n" +
-    "    </div>\n" +
-    "  </div>\n" +
+    "  <div ng-click=\"next()\" class=\"center-center start\"><a class=\"button clear-button\">CONFIGURE MY DEVICE</a></div>\n" +
     "</div>\n" +
     "<div class=\"right\">\n" +
     "  <div style=\"top: 30%\" class=\"center-center device\"></div>\n" +
@@ -188,8 +205,10 @@ angular.module('TweetableObjects').run(['$templateCache', function($templateCach
   $templateCache.put('partials/ready.html',
     "\n" +
     "<div class=\"left white\">\n" +
-    "  <div class=\"center-center\">\n" +
+    "  <div style=\"top: 25%\" class=\"center-center\">\n" +
     "    <div class=\"copy\">\n" +
+    "      <div class=\"disclaimer\"><strong>Note:</strong> The device operates on a local Wi-Fi network (e.g. your home or office). At this time, it will not connect to a hotel Wi-Fi network that requires a special login.\n" +
+    "      </div>\n" +
     "      <h1>Configure your device</h1>\n" +
     "      <p>On the base of the device, switch it to the ON position. Then, insert a paper clip into the little hole next to RESET, press gently and wait until the flashing STATUS light changes to solid blue. The solid blue means the device is ready to connect to Wi-Fi.</p><a ng-click=\"next()\" class=\"button\">CONTINUE</a>\n" +
     "    </div>\n" +

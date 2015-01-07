@@ -33,12 +33,14 @@ module.exports = ['$scope', '$location', '$timeout', '$window', 'UriMonitor', 'C
             checkLittleBits.start();
         },3000);
     } else {
-        var handleOffline = function() {
-            $scope.$apply(function() {
-                $scope.message =  WAITING_MSG;
-                checkLittleBits.start();
-            })
-        };
-        $window.addEventListener("offline",handleOffline);
+        //var handleOffline = function() {
+        //    $scope.$apply(function() {
+        //        $scope.message =  WAITING_MSG;
+        //        checkLittleBits.start();
+        //    })
+        //};
+        //$window.addEventListener("offline",handleOffline);
+        $scope.message =  WAITING_MSG;
+        checkLittleBits.start();
     }
 }];

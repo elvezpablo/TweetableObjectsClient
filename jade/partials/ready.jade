@@ -1,9 +1,14 @@
 .left.white
-    .center-center
+    .center-center(style="top: 25%")
         .copy
+            .disclaimer
+                strong Note:
+                = " "
+                | The device operates on a local Wi-Fi network (e.g. your home or office). At this time, it will not connect to a hotel Wi-Fi network that requires a special login.
             h1 Configure your device
             p On the base of the device, switch it to the ON position. Then, insert a paper clip into the little hole next to RESET, press gently and wait until the flashing STATUS light changes to solid blue. The solid blue means the device is ready to connect to Wi-Fi.
             a.button(ng-click="next()") CONTINUE
+
 .right
     .center-center.panel.panel-device-bottom
         .status( status )

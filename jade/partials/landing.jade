@@ -6,9 +6,10 @@
             .password-content.clearfix
                 .form-control
                     .prefix @
-                    input.handle(placeholder="{{ device.handle }}" ng-model="newHandle" type="text")
+                    input.handle(placeholder="{{ device.handle }}" value="{{ device.handle }}" ng-model="newHandle" type="text")
                 .form-control
                     a.button(type="button" ng-click="update(newHandle)") SAVE
+                    a.busy(ng-show="network.busy")
             h1(style="font-size: 24px; margin: 30px 0 0 0; line-height: 35px;") Connect to new Wi-Fi
             p.form-description(style="margin-top: 0px")
                 | The device must be reconfigured if you switch Wi-Fi networks. Follow these simple steps to reconnect.
