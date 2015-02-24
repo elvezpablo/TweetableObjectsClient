@@ -5,6 +5,7 @@ module.exports = ['$http', '$q', function($http, $q) {
 
     var _VERSION = "1.0.0", _URL = "http://cloudsetup.cc", _wifi;
 
+
     var _identify = function() {
         var deferred = $q.defer();
         var url = _URL+"/identify/";
@@ -24,12 +25,24 @@ module.exports = ['$http', '$q', function($http, $q) {
         return deferred.promise;
     };
 
+    var _filterWifis = function(ary) {
+        var cleaned = [], cache = [];
+        for (var i = 0; i < ary.length; i++) {
+            var obj = ary[i];
+            if(cache.indexOf(obj.ssid)=== -1) {
+                cleaned.push(obj);
+                cache.push(obj.ssid);
+            }
+        }
+        return cleaned;
+    };
+
     var _scanWifi = function() {
         var deferred = $q.defer();
         var url = _URL+"/scan-wifi/";
         $http.get(url).success(function (data, status, headers, config) {
             if(data && data.survey && data.survey.accessPoints) {
-                deferred.resolve(data.survey.accessPoints);
+                deferred.resolve(_filterWifis(data.survey.accessPoints));
             } else {
                 deferred.reject({message: "No access points found"});
             }
