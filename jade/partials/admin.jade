@@ -1,16 +1,16 @@
 .left.white
    .center-center(style="top: 25%")
       .copy
-         h1(style="margin-bottom: 0") Add Device
-         .password-content.clearfix(style="margin-bottom: 20px")
-            .form-control
-               input.handle(placeholder="id" ng-model="newId" type="text")
-         .password-content.clearfix(style="margin-bottom: 20px")
-            .form-control
-               .prefix @
-               input.handle(placeholder="handle" ng-model="handle" type="text")
-         a.button(ng-click="add(newId, handle)" style="padding: 14px 16px 14px 16px;") ADD
-         div(style="margin: 40px 0 10px 0; border-bottom: 1px solid #e9e9e9;")
+         //h1(style="margin-bottom: 0") Add Device
+         //.password-content.clearfix(style="margin-bottom: 20px")
+         //   .form-control
+         //      input.handle(placeholder="id" ng-model="newId" type="text")
+         //.password-content.clearfix(style="margin-bottom: 20px")
+         //   .form-control
+         //      .prefix @
+         //      input.handle(placeholder="handle" ng-model="handle" type="text")
+         //a.button(ng-click="add(newId, handle)" style="padding: 14px 16px 14px 16px;") ADD
+         //div(style="margin: 40px 0 10px 0; border-bottom: 1px solid #e9e9e9;")
 
          h1(style="margin: 20px 0 0 0") Edit Handle
          p(ng-if="device.id" style="font-size: 18px; margin: 0 0 10px 2px") For device ({{ device.id }})

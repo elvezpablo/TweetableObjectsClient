@@ -15,7 +15,12 @@ module.exports = ['$http', '$q', function($http, $q) {
             "method" : "GET"
             }).success(function (data, status, headers, config) {
             if(data) {
-                deferred.resolve(data);
+                if(data.error) {
+                    deferred.reject(data);
+                } else {
+                    deferred.resolve(data);
+                }
+
             } else {
                 deferred.reject(data);
             }
@@ -26,14 +31,19 @@ module.exports = ['$http', '$q', function($http, $q) {
         return deferred.promise;
     };
 
-    var _addUpdate = function(action, device_id, handle) {
+    var _addUpdate = function(action, device_id, hash, handle) {
         var deferred = $q.defer();
         var url = _URL;
         url += "/"+action+"/";
         url += device_id;
-        url += "/handle/";
-        url += handle;
-
+        if(hash) {
+            url += "/hash/";
+            url += hash;
+        }
+        if(handle) {
+            url += "/handle/";
+            url += handle;
+        }
         $http({
             "url" : url,
             "method" : "GET"
@@ -45,7 +55,7 @@ module.exports = ['$http', '$q', function($http, $q) {
             }
 
         }).error(function (data, status, headers, config) {
-            deferred.reject(status);
+            deferred.reject(data);
         });
         return deferred.promise;
     };
@@ -96,11 +106,11 @@ module.exports = ['$http', '$q', function($http, $q) {
     };
 
    return {
-       update : function(device_id, handle) {
-           return _addUpdate("update", device_id, handle);
+       update : function(device_id, hash,  handle) {
+           return _addUpdate("update", device_id, hash,  handle);
        },
-       add : function(device_id, handle) {
-           return _addUpdate("add", device_id, handle);
+       add : function(device_id, hash, handle) {
+           return _addUpdate("add", device_id, hash, handle);
        },
        device : function(device_id) {
             return _get(device_id);

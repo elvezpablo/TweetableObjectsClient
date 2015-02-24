@@ -1,9 +1,13 @@
-var littlebits = require('../libs/cloud-client-api-http/');
-var angular = require('../node_modules/angular/angular-index');
-var routes = require('../node_modules/angular-route/angular-route-index');
-var cookies = require('../node_modules/angular-cookies/angular-cookies-index');
+//var littlebits = require('../node_modules/cloud-client-api-http/');
+//var angular = require('../node_modules/angular/angular-index');
+//var routes = require('../node_modules/angular-route/angular-route-index');
+//var cookies = require('../node_modules/angular-cookies/angular-cookies-index');
+var angular = require('angular');
+var littlebits = require('littlebits');
+var routes = require('angular-route');
+var cookies = require('angular-cookies');
 
-angular.module('TweetableObjects', ['ngRoute', 'ngCookies'])
+angular.module("TweetableObjects",['ngRoute','ngCookies'])
     .value('Config',{
         DEMO : false,
         urls : {
@@ -69,19 +73,16 @@ angular.module('TweetableObjects').run(['$templateCache', function($templateCach
     "<div class=\"left white\">\n" +
     "  <div style=\"top: 25%\" class=\"center-center\">\n" +
     "    <div class=\"copy\">\n" +
-    "      <h1 style=\"margin-bottom: 0\">Add Device</h1>\n" +
-    "      <div style=\"margin-bottom: 20px\" class=\"password-content clearfix\">\n" +
-    "        <div class=\"form-control\">\n" +
-    "          <input placeholder=\"id\" ng-model=\"newId\" type=\"text\" class=\"handle\"/>\n" +
-    "        </div>\n" +
-    "      </div>\n" +
-    "      <div style=\"margin-bottom: 20px\" class=\"password-content clearfix\">\n" +
-    "        <div class=\"form-control\">\n" +
-    "          <div class=\"prefix\">@</div>\n" +
-    "          <input placeholder=\"handle\" ng-model=\"handle\" type=\"text\" class=\"handle\"/>\n" +
-    "        </div>\n" +
-    "      </div><a ng-click=\"add(newId, handle)\" style=\"padding: 14px 16px 14px 16px;\" class=\"button\">ADD</a>\n" +
-    "      <div style=\"margin: 40px 0 10px 0; border-bottom: 1px solid #e9e9e9;\"></div>\n" +
+    "      <!--h1(style=\"margin-bottom: 0\") Add Device-->\n" +
+    "      <!--.password-content.clearfix(style=\"margin-bottom: 20px\")-->\n" +
+    "      <!--   .form-control-->\n" +
+    "      <!--      input.handle(placeholder=\"id\" ng-model=\"newId\" type=\"text\")-->\n" +
+    "      <!--.password-content.clearfix(style=\"margin-bottom: 20px\")-->\n" +
+    "      <!--   .form-control-->\n" +
+    "      <!--      .prefix @-->\n" +
+    "      <!--      input.handle(placeholder=\"handle\" ng-model=\"handle\" type=\"text\")-->\n" +
+    "      <!--a.button(ng-click=\"add(newId, handle)\" style=\"padding: 14px 16px 14px 16px;\") ADD-->\n" +
+    "      <!--div(style=\"margin: 40px 0 10px 0; border-bottom: 1px solid #e9e9e9;\")-->\n" +
     "      <h1 style=\"margin: 20px 0 0 0\">Edit Handle</h1>\n" +
     "      <p ng-if=\"device.id\" style=\"font-size: 18px; margin: 0 0 10px 2px\">For device ({{ device.id }})</p>\n" +
     "      <div class=\"password-content clearfix\">\n" +
@@ -141,22 +142,6 @@ angular.module('TweetableObjects').run(['$templateCache', function($templateCach
     "      </ul>\n" +
     "    </div>\n" +
     "  </div>\n" +
-    "</div>"
-  );
-
-
-  $templateCache.put('partials/config.html',
-    "\n" +
-    "<div class=\"left white\">\n" +
-    "  <div class=\"center-center\">\n" +
-    "    <div class=\"copy\">\n" +
-    "      <h1>Configure</h1>\n" +
-    "      <p>Edit the handle</p>\n" +
-    "    </div>\n" +
-    "  </div>\n" +
-    "</div>\n" +
-    "<div class=\"right\">\n" +
-    "  <div style=\"top: 30%\" class=\"center-center device\"></div>\n" +
     "</div>"
   );
 

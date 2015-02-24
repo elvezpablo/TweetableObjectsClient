@@ -15,6 +15,7 @@ module.exports = ['$scope', '$location', '$cookies', 'CloudbitWifiSetup', 'Confi
                 CloudbitWifiSetup.identify().then(function(data) {
                     //console.log("identify: %o setting littlebits_device_id", data);
                     $cookies.littlebits_device_id = data.id;
+                    $cookies.littlebits_device_hash = data.hash;
                     $location.url('/5');
                 });
 

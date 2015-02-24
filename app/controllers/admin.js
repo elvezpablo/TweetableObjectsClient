@@ -22,7 +22,11 @@ module.exports = ['$scope', 'Devices', function($scope, Devices) {
 
     $scope.edit = function(handle) {
         console.log($scope.device.id, handle);
-      ///  Devices.update($scope.device.id, handle).then(function(data) {});
+        Devices.update($scope.device.id, null, handle).then(function(data) {
+            Devices.list().then(function(devices) {
+                $scope.devices = devices;
+            });
+        });
     }
 
 

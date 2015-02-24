@@ -13,7 +13,7 @@ module.exports = ['$scope', '$location', '$cookies', 'Devices', 'Config', functi
     });
 
     $scope.update = function(handle) {
-        Devices.update($cookies.littlebits_device_id, handle).then(function(data) {});
+        Devices.update($cookies.littlebits_device_id, null, handle).then(function(data) {});
     };
 
     $scope.newWifi = function() {

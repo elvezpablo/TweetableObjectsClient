@@ -1,9 +1,13 @@
-var littlebits = require('../libs/cloud-client-api-http/');
-var angular = require('../node_modules/angular/angular-index');
-var routes = require('../node_modules/angular-route/angular-route-index');
-var cookies = require('../node_modules/angular-cookies/angular-cookies-index');
+//var littlebits = require('../node_modules/cloud-client-api-http/');
+//var angular = require('../node_modules/angular/angular-index');
+//var routes = require('../node_modules/angular-route/angular-route-index');
+//var cookies = require('../node_modules/angular-cookies/angular-cookies-index');
+var angular = require('angular');
+var littlebits = require('littlebits');
+var routes = require('angular-route');
+var cookies = require('angular-cookies');
 
-angular.module('TweetableObjects', ['ngRoute', 'ngCookies'])
+angular.module("TweetableObjects",['ngRoute','ngCookies'])
     .value('Config',{
         DEMO : false,
         urls : {
