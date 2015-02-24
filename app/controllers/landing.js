@@ -8,7 +8,6 @@ module.exports = ['$scope', '$location', '$cookies', '$timeout', 'Config', 'Pagi
     var _getHandle = function()  {
         if($cookies.littlebits_device_id && $cookies.littlebits_device_id.length > 0 && $cookies.littlebits_device_hash) {
             // first check to see if we have a handle
-            console.log("checking ",$cookies.littlebits_device_id," & ",$cookies.littlebits_device_hash );
             Devices.device($cookies.littlebits_device_id).then(function(device) {
                 console.log("device", device);
                if(device.handle) {
@@ -51,6 +50,10 @@ module.exports = ['$scope', '$location', '$cookies', '$timeout', 'Config', 'Pagi
         $scope.device = device;
     });
 
+    $scope.makeFly = function() {
+        Devices.trigger($cookies.littlebits_device_id);
+    };
+
     $scope.update = function(handle) {
 
         if(handle && handle.length > 2) {
@@ -70,6 +73,7 @@ module.exports = ['$scope', '$location', '$cookies', '$timeout', 'Config', 'Pagi
     $scope.newWifi = function() {
         $location.path("/1");
         $cookies.littlebits_device_id = "";
+        $cookies.littlebits_device_hash = "";
     };
 
 

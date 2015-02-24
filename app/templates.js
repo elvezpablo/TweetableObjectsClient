@@ -104,6 +104,7 @@ angular.module('TweetableObjects').run(['$templateCache', function($templateCach
     "        </div>\n" +
     "        <div class=\"form-control\"><a type=\"button\" ng-click=\"update(newHandle)\" class=\"button\">SAVE</a><a ng-show=\"network.busy\" class=\"busy\"></a></div>\n" +
     "      </div>\n" +
+    "      <div style=\"margin: 20px 0 30px 0;\" class=\"new-wifi\"><a ng-click=\"makeFly()\" style=\"display: block; text-align: center; padding-right: 16px;\" class=\"button\">MAKE IT FLY</a></div>\n" +
     "      <h1 style=\"font-size: 24px; margin: 30px 0 0 0; line-height: 35px;\">Connect to new Wi-Fi</h1>\n" +
     "      <p style=\"margin-top: 0px\" class=\"form-description\">The device must be reconfigured if you switch Wi-Fi networks. Follow these simple steps to reconnect.</p>\n" +
     "      <div style=\"margin: 20px 0 30px 0;\" class=\"new-wifi\"><a ng-click=\"newWifi()\" class=\"button\">CONFIGURE MY DEVICE</a></div>\n" +
